@@ -21,10 +21,11 @@ class GithubController extends Controller implements SocialAccountController
         $githubUser = Socialite::driver('github')->stateless()->user();
 
         $user = $socialAccountService->firstOrCreate($githubUser, 'github');
+        $token = $user->createToken('Personal Access Token');
 
         return response()->json([
             'user' => $user,
-            'token' => ''
+            'token' => $token->plainTextToken
         ]);
     }
 }

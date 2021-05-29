@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'v1'], function () {
     Route::group(['prefix' => 'auth'], function () {
-        Route::get('/github', [GithubController::class, 'redirect']);
+        Route::get('/github', [GithubController::class, 'redirect'])->name('login');
         Route::get('/github/callback', [GithubController::class, 'callback']);
     });
 
+//    Route::group(['middleware' => 'auth:sanctum'], function () {
+//
+//    });
 });
