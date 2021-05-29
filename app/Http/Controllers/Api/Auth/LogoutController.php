@@ -12,6 +12,6 @@ class LogoutController extends Controller
     {
         $request->user()->currentAccessToken()->delete();
 
-        return response()->json('', 204);
+        return response()->json(null, 204);
     }
 }

@@ -7,7 +7,7 @@ use App\Services\SocialAccountService;
 use Illuminate\Http\JsonResponse;
 use Laravel\Socialite\Facades\Socialite;
 
-class GithubController extends Controller implements SocialAccountController
+class GithubController extends Controller implements SocialAccount
 {
     public function redirect(): JsonResponse
     {
