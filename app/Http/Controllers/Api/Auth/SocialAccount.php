@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Services\SocialAccountService;
 use Illuminate\Http\JsonResponse;
 
-interface SocialAccountController
+interface SocialAccount
 {
     public function redirect(): JsonResponse;
 
