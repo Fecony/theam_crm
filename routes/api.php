@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Auth\GithubController;
 use App\Http\Controllers\Api\Auth\LogoutController;
+use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\PhotoController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,10 @@ Route::group(['prefix' => 'v1'], function () {
         Route::delete('/logout', LogoutController::class);
 
         Route::apiResource('photos', PhotoController::class)->only(['store', 'destroy']);
+
+        Route::apiResources([
+            'customers' => CustomerController::class,
+            // 'users' => UserController::class
+        ]);
     });
 });
