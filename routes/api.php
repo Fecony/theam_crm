@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\Auth\GithubController;
 use App\Http\Controllers\Api\Auth\LogoutController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\PhotoController;
+use App\Http\Controllers\Api\ToggleAdminController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,9 +30,11 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::apiResource('photos', PhotoController::class)->only(['store', 'destroy']);
 
-        Route::apiResources([
-            'customers' => CustomerController::class,
-            // 'users' => UserController::class
-        ]);
+        Route::apiResource('customers', CustomerController::class);
+
+        Route::group(['middleware' => 'isAdmin'], function () {
+            Route::apiResource('users', UserController::class);
+            Route::patch('/users/{user}/toggle_admin', ToggleAdminController::class);
+        });
     });
 });
