@@ -26,7 +26,7 @@ class StoreCustomerRequest extends FormRequest
         return [
             'name' => ['required'],
             'surname' => ['required'],
-//            'photo_id'
+            'photo_id' => ['nullable', 'exists:photos,id']
         ];
     }
 }

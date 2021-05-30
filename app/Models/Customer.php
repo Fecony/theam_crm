@@ -13,13 +13,13 @@ class Customer extends Model
     protected $fillable = [
         'name',
         'surname',
-//        'photo_id',
+        'photo_id',
     ];
 
-//    public function photo()
-//    {
-//
-//    }
+    public function photo(): BelongsTo
+    {
+        return $this->belongsTo(Photo::class);
+    }
 
     public function createdBy(): BelongsTo
     {

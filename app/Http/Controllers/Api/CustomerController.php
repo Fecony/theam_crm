@@ -14,7 +14,7 @@ class CustomerController extends Controller
 {
     public function index(): AnonymousResourceCollection
     {
-        return CustomerResource::collection(Customer::with(['createdBy', 'updatedBy']));
+        return CustomerResource::collection(Customer::with(['photo', 'createdBy', 'updatedBy'])->get());
     }
 
     public function store(StoreCustomerRequest $request): CustomerResource
