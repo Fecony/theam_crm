@@ -28,4 +28,18 @@ class StoreUserRequest extends FormRequest
             'username' => ['required'],
         ];
     }
+
+    public function bodyParameters(): array
+    {
+        return [
+            'email' => [
+                'description' => 'User email',
+                'example' => 'email@example.com'
+            ],
+            'username' => [
+                'description' => 'User username',
+                'example' => 'Example github username',
+            ],
+        ];
+    }
 }

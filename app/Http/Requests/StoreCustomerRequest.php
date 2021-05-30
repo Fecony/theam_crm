@@ -29,4 +29,22 @@ class StoreCustomerRequest extends FormRequest
             'photo_id' => ['nullable', 'exists:photos,id']
         ];
     }
+
+    public function bodyParameters(): array
+    {
+        return [
+            'name' => [
+                'description' => 'Customer name',
+                'example' => 'Example name'
+            ],
+            'surname' => [
+                'description' => 'Customer surname',
+                'example' => 'Example surname',
+            ],
+            'photo_id' => [
+                'description' => 'Photo id',
+                'example' => '1'
+            ],
+        ];
+    }
 }

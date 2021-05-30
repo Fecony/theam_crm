@@ -7,6 +7,13 @@ use App\Services\SocialAccountService;
 use Illuminate\Http\JsonResponse;
 use Laravel\Socialite\Facades\Socialite;
 
+/**
+ * @group Github Authentication
+ *
+ * @unauthenticated
+ *
+ * API for OAuth Authentication.
+ */
 class GithubController extends Controller implements SocialAccount
 {
     public function redirect(): JsonResponse
