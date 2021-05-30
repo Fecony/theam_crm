@@ -14,12 +14,27 @@ class User extends Authenticatable
     use Notifiable;
     use HasApiTokens;
 
-    protected $fillable = ['email', 'username'];
+    protected $fillable = [
+        'email',
+        'username'
+    ];
 
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
+    protected $casts = [
+        'is_admin' => 'boolean',
+    ];
 
     public function socialAccounts(): HasMany
     {
         return $this->hasMany(SocialAccount::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->is_admin === true;
     }
 }
