@@ -16,6 +16,8 @@ class User extends Authenticatable
 
     protected $fillable = ['email', 'username'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     public function socialAccounts(): HasMany
     {
         return $this->hasMany(SocialAccount::class);
