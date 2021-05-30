@@ -60,8 +60,8 @@ print_r(json_decode((string) $body));
     "data": [
         {
             "id": null,
-            "name": "Hayden",
-            "surname": "Schoen",
+            "name": "Jacquelyn",
+            "surname": "Wintheiser",
             "photoUrl": null,
             "created_by": {
                 "id": 1,
@@ -70,30 +70,30 @@ print_r(json_decode((string) $body));
                 "is_admin": true
             },
             "updated_by": {
-                "id": 1,
-                "email": "tagils@mail.ru",
-                "username": "Fecony",
-                "is_admin": true
+                "id": 3,
+                "email": "example@example.com",
+                "username": "GithubUser",
+                "is_admin": false
             },
             "created_at": "",
             "updated_at": ""
         },
         {
             "id": null,
-            "name": "Greg",
-            "surname": "Farrell",
+            "name": "Nicklaus",
+            "surname": "Rice",
             "photoUrl": null,
             "created_by": {
-                "id": 2,
-                "email": "example@mail.ru",
-                "username": "Test user",
-                "is_admin": false
+                "id": 1,
+                "email": "tagils@mail.ru",
+                "username": "Fecony",
+                "is_admin": true
             },
             "updated_by": {
-                "id": 2,
-                "email": "example@mail.ru",
-                "username": "Test user",
-                "is_admin": false
+                "id": 1,
+                "email": "tagils@mail.ru",
+                "username": "Fecony",
+                "is_admin": true
             },
             "created_at": "",
             "updated_at": ""
@@ -208,20 +208,20 @@ print_r(json_decode((string) $body));
 {
     "data": {
         "id": null,
-        "name": "Quincy",
-        "surname": "Ledner",
+        "name": "Megane",
+        "surname": "Kovacek",
         "photoUrl": null,
         "created_by": {
-            "id": 1,
-            "email": "tagils@mail.ru",
-            "username": "Fecony",
-            "is_admin": true
+            "id": 3,
+            "email": "example@example.com",
+            "username": "GithubUser",
+            "is_admin": false
         },
         "updated_by": {
-            "id": 1,
-            "email": "tagils@mail.ru",
-            "username": "Fecony",
-            "is_admin": true
+            "id": 2,
+            "email": "example@mail.ru",
+            "username": "Test user",
+            "is_admin": false
         },
         "created_at": "",
         "updated_at": ""
@@ -280,7 +280,7 @@ Photo id.
 
 ```bash
 curl -X GET \
-    -G "http://theam_crm.test/api/v1/customers/12" \
+    -G "http://theam_crm.test/api/v1/customers/14" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -288,7 +288,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/customers/12"
+    "http://theam_crm.test/api/v1/customers/14"
 );
 
 let headers = {
@@ -308,7 +308,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://theam_crm.test/api/v1/customers/12',
+    'http://theam_crm.test/api/v1/customers/14',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -334,8 +334,8 @@ print_r(json_decode((string) $body));
 {
     "data": {
         "id": null,
-        "name": "Brendan",
-        "surname": "Lesch",
+        "name": "Christophe",
+        "surname": "Schiller",
         "photoUrl": null,
         "created_by": {
             "id": 3,
@@ -393,7 +393,7 @@ Customer id to show.
 
 ```bash
 curl -X PUT \
-    "http://theam_crm.test/api/v1/customers/20" \
+    "http://theam_crm.test/api/v1/customers/2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -401,7 +401,7 @@ curl -X PUT \
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/customers/20"
+    "http://theam_crm.test/api/v1/customers/2"
 );
 
 let headers = {
@@ -421,7 +421,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    'http://theam_crm.test/api/v1/customers/20',
+    'http://theam_crm.test/api/v1/customers/2',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -447,19 +447,19 @@ print_r(json_decode((string) $body));
 {
     "data": {
         "id": null,
-        "name": "Ebba",
-        "surname": "Flatley",
+        "name": "Taya",
+        "surname": "Swaniawski",
         "photoUrl": null,
         "created_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
-            "is_admin": false
+            "id": 1,
+            "email": "tagils@mail.ru",
+            "username": "Fecony",
+            "is_admin": true
         },
         "updated_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
+            "id": 3,
+            "email": "example@example.com",
+            "username": "GithubUser",
             "is_admin": false
         },
         "created_at": "",
@@ -510,7 +510,7 @@ Customer id to update.
 
 ```bash
 curl -X DELETE \
-    "http://theam_crm.test/api/v1/customers/18" \
+    "http://theam_crm.test/api/v1/customers/19" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -518,7 +518,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/customers/18"
+    "http://theam_crm.test/api/v1/customers/19"
 );
 
 let headers = {
@@ -538,7 +538,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://theam_crm.test/api/v1/customers/18',
+    'http://theam_crm.test/api/v1/customers/19',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

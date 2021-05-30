@@ -60,7 +60,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://theam_crm.test</code></pre><h1>Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by authorizing via <b>Github OAuth2 Provider</b>.</p><h1>Customer endpoint</h1>
 <p>Endpoint used to manage CRM customers.</p>
@@ -108,8 +108,8 @@ print_r(json_decode((string) $body));</code></pre>
     "data": [
         {
             "id": null,
-            "name": "Hayden",
-            "surname": "Schoen",
+            "name": "Jacquelyn",
+            "surname": "Wintheiser",
             "photoUrl": null,
             "created_by": {
                 "id": 1,
@@ -118,30 +118,30 @@ print_r(json_decode((string) $body));</code></pre>
                 "is_admin": true
             },
             "updated_by": {
-                "id": 1,
-                "email": "tagils@mail.ru",
-                "username": "Fecony",
-                "is_admin": true
+                "id": 3,
+                "email": "example@example.com",
+                "username": "GithubUser",
+                "is_admin": false
             },
             "created_at": "",
             "updated_at": ""
         },
         {
             "id": null,
-            "name": "Greg",
-            "surname": "Farrell",
+            "name": "Nicklaus",
+            "surname": "Rice",
             "photoUrl": null,
             "created_by": {
-                "id": 2,
-                "email": "example@mail.ru",
-                "username": "Test user",
-                "is_admin": false
+                "id": 1,
+                "email": "tagils@mail.ru",
+                "username": "Fecony",
+                "is_admin": true
             },
             "updated_by": {
-                "id": 2,
-                "email": "example@mail.ru",
-                "username": "Test user",
-                "is_admin": false
+                "id": 1,
+                "email": "tagils@mail.ru",
+                "username": "Fecony",
+                "is_admin": true
             },
             "created_at": "",
             "updated_at": ""
@@ -239,20 +239,20 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-json">{
     "data": {
         "id": null,
-        "name": "Quincy",
-        "surname": "Ledner",
+        "name": "Megane",
+        "surname": "Kovacek",
         "photoUrl": null,
         "created_by": {
-            "id": 1,
-            "email": "tagils@mail.ru",
-            "username": "Fecony",
-            "is_admin": true
+            "id": 3,
+            "email": "example@example.com",
+            "username": "GithubUser",
+            "is_admin": false
         },
         "updated_by": {
-            "id": 1,
-            "email": "tagils@mail.ru",
-            "username": "Fecony",
-            "is_admin": true
+            "id": 2,
+            "email": "example@mail.ru",
+            "username": "Test user",
+            "is_admin": false
         },
         "created_at": "",
         "updated_at": ""
@@ -304,12 +304,12 @@ Photo id.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://theam_crm.test/api/v1/customers/12" \
+    -G "http://theam_crm.test/api/v1/customers/14" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://theam_crm.test/api/v1/customers/12"
+    "http://theam_crm.test/api/v1/customers/14"
 );
 
 let headers = {
@@ -325,7 +325,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://theam_crm.test/api/v1/customers/12',
+    'http://theam_crm.test/api/v1/customers/14',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -347,8 +347,8 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-json">{
     "data": {
         "id": null,
-        "name": "Brendan",
-        "surname": "Lesch",
+        "name": "Christophe",
+        "surname": "Schiller",
         "photoUrl": null,
         "created_by": {
             "id": 3,
@@ -399,12 +399,12 @@ Customer id to show.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://theam_crm.test/api/v1/customers/20" \
+    "http://theam_crm.test/api/v1/customers/2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://theam_crm.test/api/v1/customers/20"
+    "http://theam_crm.test/api/v1/customers/2"
 );
 
 let headers = {
@@ -420,7 +420,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://theam_crm.test/api/v1/customers/20',
+    'http://theam_crm.test/api/v1/customers/2',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -442,19 +442,19 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-json">{
     "data": {
         "id": null,
-        "name": "Ebba",
-        "surname": "Flatley",
+        "name": "Taya",
+        "surname": "Swaniawski",
         "photoUrl": null,
         "created_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
-            "is_admin": false
+            "id": 1,
+            "email": "tagils@mail.ru",
+            "username": "Fecony",
+            "is_admin": true
         },
         "updated_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
+            "id": 3,
+            "email": "example@example.com",
+            "username": "GithubUser",
             "is_admin": false
         },
         "created_at": "",
@@ -498,12 +498,12 @@ Customer id to update.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://theam_crm.test/api/v1/customers/18" \
+    "http://theam_crm.test/api/v1/customers/19" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://theam_crm.test/api/v1/customers/18"
+    "http://theam_crm.test/api/v1/customers/19"
 );
 
 let headers = {
@@ -519,7 +519,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://theam_crm.test/api/v1/customers/18',
+    'http://theam_crm.test/api/v1/customers/19',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -695,7 +695,7 @@ print_r(json_decode((string) $body));</code></pre>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpP8iOvf" </code></pre>
+    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpyrTcQf" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://theam_crm.test/api/v1/photos"
 );
@@ -726,7 +726,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'photo',
-                'contents' =&gt; fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpP8iOvf', 'r')
+                'contents' =&gt; fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpyrTcQf', 'r')
             ],
         ],
     ]
@@ -790,12 +790,12 @@ The image.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://theam_crm.test/api/v1/photos/7" \
+    "http://theam_crm.test/api/v1/photos/15" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://theam_crm.test/api/v1/photos/7"
+    "http://theam_crm.test/api/v1/photos/15"
 );
 
 let headers = {
@@ -811,7 +811,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://theam_crm.test/api/v1/photos/7',
+    'http://theam_crm.test/api/v1/photos/15',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -859,6 +859,7 @@ Photo id to remove.
 </p>
 </form><h1>User endpoint</h1>
 <p>Endpoint used to manage CRM users.</p>
+<aside class="warning">Only admin users can access this endpoint</aside>
 <h2>api/v1/users</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
@@ -902,20 +903,20 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-json">{
     "data": [
         {
-            "id": 4,
-            "email": "klockman@example.net",
-            "username": "rhett08",
+            "id": 22,
+            "email": "heaven30@example.com",
+            "username": "mwolf",
             "is_admin": null,
-            "created_at": "2021-05-30 17:28:39",
-            "updated_at": "2021-05-30 17:28:39"
+            "created_at": "2021-05-30 17:41:42",
+            "updated_at": "2021-05-30 17:41:42"
         },
         {
-            "id": 5,
-            "email": "alysson04@example.org",
-            "username": "shuel",
+            "id": 23,
+            "email": "hdickens@example.net",
+            "username": "cmcdermott",
             "is_admin": null,
-            "created_at": "2021-05-30 17:28:39",
-            "updated_at": "2021-05-30 17:28:39"
+            "created_at": "2021-05-30 17:41:42",
+            "updated_at": "2021-05-30 17:41:42"
         }
     ]
 }</code></pre>
@@ -1007,12 +1008,12 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "id": 6,
-        "email": "smann@example.com",
-        "username": "obalistreri",
+        "id": 24,
+        "email": "davion43@example.com",
+        "username": "braden43",
         "is_admin": null,
-        "created_at": "2021-05-30 17:28:39",
-        "updated_at": "2021-05-30 17:28:39"
+        "created_at": "2021-05-30 17:41:42",
+        "updated_at": "2021-05-30 17:41:42"
     }
 }</code></pre>
 <div id="execution-results-POSTapi-v1-users" hidden>
@@ -1055,12 +1056,12 @@ User username.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://theam_crm.test/api/v1/users/consequuntur" \
+    -G "http://theam_crm.test/api/v1/users/id" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://theam_crm.test/api/v1/users/consequuntur"
+    "http://theam_crm.test/api/v1/users/id"
 );
 
 let headers = {
@@ -1076,7 +1077,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://theam_crm.test/api/v1/users/consequuntur',
+    'http://theam_crm.test/api/v1/users/id',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1097,12 +1098,12 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "id": 7,
-        "email": "anderson.baumbach@example.org",
-        "username": "russ.gutkowski",
+        "id": 25,
+        "email": "kunze.burley@example.net",
+        "username": "zpurdy",
         "is_admin": null,
-        "created_at": "2021-05-30 17:28:39",
-        "updated_at": "2021-05-30 17:28:39"
+        "created_at": "2021-05-30 17:41:42",
+        "updated_at": "2021-05-30 17:41:42"
     }
 }</code></pre>
 <div id="execution-results-GETapi-v1-users--user-" hidden>
@@ -1186,12 +1187,12 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "id": 8,
-        "email": "adele28@example.org",
-        "username": "keagan.torphy",
+        "id": 26,
+        "email": "kovacek.shaun@example.com",
+        "username": "drake73",
         "is_admin": null,
-        "created_at": "2021-05-30 17:28:39",
-        "updated_at": "2021-05-30 17:28:39"
+        "created_at": "2021-05-30 17:41:42",
+        "updated_at": "2021-05-30 17:41:42"
     }
 }</code></pre>
 <div id="execution-results-PUTapi-v1-users--user-" hidden>
@@ -1231,12 +1232,12 @@ User id to update.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://theam_crm.test/api/v1/users/7" \
+    "http://theam_crm.test/api/v1/users/4" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://theam_crm.test/api/v1/users/7"
+    "http://theam_crm.test/api/v1/users/4"
 );
 
 let headers = {
@@ -1252,7 +1253,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://theam_crm.test/api/v1/users/7',
+    'http://theam_crm.test/api/v1/users/4',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1305,12 +1306,12 @@ User id to remove.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PATCH \
-    "http://theam_crm.test/api/v1/users/9/toggle_admin" \
+    "http://theam_crm.test/api/v1/users/18/toggle_admin" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://theam_crm.test/api/v1/users/9/toggle_admin"
+    "http://theam_crm.test/api/v1/users/18/toggle_admin"
 );
 
 let headers = {
@@ -1326,7 +1327,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;patch(
-    'http://theam_crm.test/api/v1/users/9/toggle_admin',
+    'http://theam_crm.test/api/v1/users/18/toggle_admin',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1347,12 +1348,12 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "id": 9,
-        "email": "electa81@example.net",
-        "username": "jaida.langosh",
+        "id": 27,
+        "email": "senger.reginald@example.net",
+        "username": "caleigh.friesen",
         "is_admin": null,
-        "created_at": "2021-05-30 17:28:39",
-        "updated_at": "2021-05-30 17:28:39"
+        "created_at": "2021-05-30 17:41:42",
+        "updated_at": "2021-05-30 17:41:42"
     }
 }</code></pre>
 <div id="execution-results-PATCHapi-v1-users--user--toggle_admin" hidden>

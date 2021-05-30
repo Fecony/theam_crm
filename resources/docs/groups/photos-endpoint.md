@@ -16,7 +16,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpP8iOvf" 
+    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpyrTcQf" 
 ```
 
 ```javascript
@@ -53,7 +53,7 @@ $response = $client->post(
         'multipart' => [
             [
                 'name' => 'photo',
-                'contents' => fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpP8iOvf', 'r')
+                'contents' => fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpyrTcQf', 'r')
             ],
         ],
     ]
@@ -128,7 +128,7 @@ The image.
 
 ```bash
 curl -X DELETE \
-    "http://theam_crm.test/api/v1/photos/7" \
+    "http://theam_crm.test/api/v1/photos/15" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -136,7 +136,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/photos/7"
+    "http://theam_crm.test/api/v1/photos/15"
 );
 
 let headers = {
@@ -156,7 +156,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://theam_crm.test/api/v1/photos/7',
+    'http://theam_crm.test/api/v1/photos/15',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

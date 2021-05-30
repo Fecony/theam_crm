@@ -1,6 +1,7 @@
 # User endpoint
 
 Endpoint used to manage CRM users.
+<aside class="warning">Only admin users can access this endpoint</aside>
 
 ## api/v1/users
 
@@ -59,20 +60,20 @@ print_r(json_decode((string) $body));
 {
     "data": [
         {
-            "id": 4,
-            "email": "klockman@example.net",
-            "username": "rhett08",
+            "id": 22,
+            "email": "heaven30@example.com",
+            "username": "mwolf",
             "is_admin": null,
-            "created_at": "2021-05-30 17:28:39",
-            "updated_at": "2021-05-30 17:28:39"
+            "created_at": "2021-05-30 17:41:42",
+            "updated_at": "2021-05-30 17:41:42"
         },
         {
-            "id": 5,
-            "email": "alysson04@example.org",
-            "username": "shuel",
+            "id": 23,
+            "email": "hdickens@example.net",
+            "username": "cmcdermott",
             "is_admin": null,
-            "created_at": "2021-05-30 17:28:39",
-            "updated_at": "2021-05-30 17:28:39"
+            "created_at": "2021-05-30 17:41:42",
+            "updated_at": "2021-05-30 17:41:42"
         }
     ]
 }
@@ -181,12 +182,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 6,
-        "email": "smann@example.com",
-        "username": "obalistreri",
+        "id": 24,
+        "email": "davion43@example.com",
+        "username": "braden43",
         "is_admin": null,
-        "created_at": "2021-05-30 17:28:39",
-        "updated_at": "2021-05-30 17:28:39"
+        "created_at": "2021-05-30 17:41:42",
+        "updated_at": "2021-05-30 17:41:42"
     }
 }
 ```
@@ -236,7 +237,7 @@ User username.
 
 ```bash
 curl -X GET \
-    -G "http://theam_crm.test/api/v1/users/consequuntur" \
+    -G "http://theam_crm.test/api/v1/users/id" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -244,7 +245,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/users/consequuntur"
+    "http://theam_crm.test/api/v1/users/id"
 );
 
 let headers = {
@@ -264,7 +265,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://theam_crm.test/api/v1/users/consequuntur',
+    'http://theam_crm.test/api/v1/users/id',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -289,12 +290,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 7,
-        "email": "anderson.baumbach@example.org",
-        "username": "russ.gutkowski",
+        "id": 25,
+        "email": "kunze.burley@example.net",
+        "username": "zpurdy",
         "is_admin": null,
-        "created_at": "2021-05-30 17:28:39",
-        "updated_at": "2021-05-30 17:28:39"
+        "created_at": "2021-05-30 17:41:42",
+        "updated_at": "2021-05-30 17:41:42"
     }
 }
 ```
@@ -396,12 +397,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 8,
-        "email": "adele28@example.org",
-        "username": "keagan.torphy",
+        "id": 26,
+        "email": "kovacek.shaun@example.com",
+        "username": "drake73",
         "is_admin": null,
-        "created_at": "2021-05-30 17:28:39",
-        "updated_at": "2021-05-30 17:28:39"
+        "created_at": "2021-05-30 17:41:42",
+        "updated_at": "2021-05-30 17:41:42"
     }
 }
 ```
@@ -448,7 +449,7 @@ User id to update.
 
 ```bash
 curl -X DELETE \
-    "http://theam_crm.test/api/v1/users/7" \
+    "http://theam_crm.test/api/v1/users/4" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -456,7 +457,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/users/7"
+    "http://theam_crm.test/api/v1/users/4"
 );
 
 let headers = {
@@ -476,7 +477,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://theam_crm.test/api/v1/users/7',
+    'http://theam_crm.test/api/v1/users/4',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -540,7 +541,7 @@ User id to remove.
 
 ```bash
 curl -X PATCH \
-    "http://theam_crm.test/api/v1/users/9/toggle_admin" \
+    "http://theam_crm.test/api/v1/users/18/toggle_admin" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -548,7 +549,7 @@ curl -X PATCH \
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/users/9/toggle_admin"
+    "http://theam_crm.test/api/v1/users/18/toggle_admin"
 );
 
 let headers = {
@@ -568,7 +569,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->patch(
-    'http://theam_crm.test/api/v1/users/9/toggle_admin',
+    'http://theam_crm.test/api/v1/users/18/toggle_admin',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -593,12 +594,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 9,
-        "email": "electa81@example.net",
-        "username": "jaida.langosh",
+        "id": 27,
+        "email": "senger.reginald@example.net",
+        "username": "caleigh.friesen",
         "is_admin": null,
-        "created_at": "2021-05-30 17:28:39",
-        "updated_at": "2021-05-30 17:28:39"
+        "created_at": "2021-05-30 17:41:42",
+        "updated_at": "2021-05-30 17:41:42"
     }
 }
 ```
