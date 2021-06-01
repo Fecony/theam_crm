@@ -135,18 +135,14 @@ You will get url that user has to visit in order to give us access to his Github
 
 ## Documentation
 
-> Note: Thes aren't any published docs so you have to generate them on your own :(
+You can view deployed version of docs at [Github Pages](https://fecony.github.io/theam_crm/)
 
-You can regenerate app docs on you local system by running:
+To regenerate docs run:
 
 ```bash
   php artisan scribe:generate
-  # sail artisan scribe:generate <- if you are running app in Docker
 ```
-
-Then you will be able to view docs by visiting <http://theam_crm.test/docs> or <http://127.0.0.1:8000/docs> if you are running app in Docker.
-
-Also you can find Postman collection by visiting <http://theam_crm.test/docs.postman> or <http://127.0.0.1:8000/docs.postman> if you are running app in Docker.
+Also you can find Postman collection by visiting /docs.postman.
 
 ## Authors
 
