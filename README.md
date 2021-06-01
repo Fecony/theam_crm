@@ -1,62 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# THEAM CRM API Service
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+CRM API Service used to manage customers.
 
-## About Laravel
+## Environment Variables
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+To run this project, you will need to add the following environment variables to your `.env` file
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+`GITHUB_CLIENT_ID`
+`GITHUB_CLIENT_SECRET`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### To get those values you have to create github OAuth application. Folow [Github docs](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) to create OAuth application.
 
-## Learning Laravel
+For authorization callback use your local app url <http://theam_crm.test/api/v1/auth/github/callback> if you are running app locally using Valet / Valet +.
+Or <http://127.0.0.1:8000/api/v1/auth/github/callback> if you are running app in Docker or using built-in server.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Clone the project
 
-## Laravel Sponsors
+```bash
+  git clone git@github.com:Fecony/theam_crm.git
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Go to the project directory
 
-### Premium Partners
+```bash
+  cd theam_crm
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+Install dependencies
 
-## Contributing
+```bash
+  composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Copy .env.example file to .env on the root folder.
 
-## Code of Conduct
+```bash
+  cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Run `php artisan key:generate` to generate app key.
 
-## Security Vulnerabilities
+## Run Locally
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### Docker
+
+By default application is configured to run in Docker container. You don't have to change any environment configuration setting.
+To run app in Docker container make sure that Docker is running.
+Then run Laravel Sail command to run Docker in background:
+
+```bash
+  ./vendor/bin/sail up -d
+```
+
+After you application is running in Docker container run `sail artisan migrate` to run migration files.
+
+### Running application locally without Docker
+
+To run application locally you have to change your `.env` file mysql settings. Change following settings to match you local mysql settings:
+
+```bash
+DB_HOST=127.0.0.1
+DB_PORT=3306
+
+# Change this settings to match you database name and mysql user
+DB_DATABASE=laravel
+DB_USERNAME=sail
+DB_PASSWORD=password
+```
+
+Then run `php artisan migrate` to run migration files.
+
+#### Valet / Valet +
+
+Valet is a Laravel development environment for macOS minimalists. You can use it to run Laravel application locally.
+Read more about Valet here: https://laravel.com/docs/8.x/valet
+
+Also you can use [Valet plus](https://github.com/weprovide/valet-plus) that is more powerful version of Laravel Valet.
+Follow Valet docs to park and link you application. After that you will be able to access it by visiting <http://theam_crm.test/>
+
+#### Laravel built-in server
+
+To run application using Laravel built in server run following artisan command:
+
+```bash
+  php artisan serve
+```
+
+Then you can access you app running on <http://127.0.0.1:8000>
+
+## Documentation
+
+> Note: Thes aren't any published docs so you have to generate them on your own :(
+
+You can regenerate app docs on you local system by running:
+
+```bash
+  php artisan scribe:generate
+  # sail artisan scribe:generate <- if you are running app in Docker
+```
+
+Then you will be able to view docs by visiting <http://theam_crm.test/docs> or <http://127.0.0.1:8000/docs> if you are running app in Docker.
+
+Also you can find Postman collection by visiting <http://theam_crm.test/docs.postman> or <http://127.0.0.1:8000/docs.postman> if you are running app in Docker.
+
+## Authors
+
+- [@fecony](https://www.github.com/fecony)
+
+## Acknowledgements
+
+- Thanks to Taylor Otwell for creating Laravel ✨
+- [Readme generator](https://readme.so/)
+
+## Support
+
+For support, contact me [@fecony](https://www.github.com/fecony).
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[MIT](https://choosealicense.com/licenses/mit/)
