@@ -1,0 +1,1507 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "[YOUR APP URL]"
+        }
+    ],
+    "info": {
+        "name": "THEAM CRM API",
+        "_postman_id": "8a02dc56-4b16-4224-961c-0643c0da72a1",
+        "description": "Small API for CRM system to manage customers",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Customer endpoint",
+            "description": "\nEndpoint used to manage CRM customers.",
+            "item": [
+                {
+                    "name": "api\/v1\/customers",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/customers",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/customers Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customers",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": null,\n            \"name\": \"Sabrina\",\n            \"surname\": \"Durgan\",\n            \"photoUrl\": null,\n            \"created_by\": {\n                \"id\": 1,\n                \"email\": \"tagils@mail.ru\",\n                \"username\": \"Fecony\",\n                \"is_admin\": true\n            },\n            \"updated_by\": {\n                \"id\": 2,\n                \"email\": \"example@mail.ru\",\n                \"username\": \"Test user\",\n                \"is_admin\": false\n            },\n            \"created_at\": \"\",\n            \"updated_at\": \"\"\n        },\n        {\n            \"id\": null,\n            \"name\": \"Queenie\",\n            \"surname\": \"Brekke\",\n            \"photoUrl\": null,\n            \"created_by\": {\n                \"id\": 1,\n                \"email\": \"tagils@mail.ru\",\n                \"username\": \"Fecony\",\n                \"is_admin\": true\n            },\n            \"updated_by\": {\n                \"id\": 2,\n                \"email\": \"example@mail.ru\",\n                \"username\": \"Test user\",\n                \"is_admin\": false\n            },\n            \"created_at\": \"\",\n            \"updated_at\": \"\"\n        }\n    ]\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/customers",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/customers",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Example name\",\n    \"surname\": \"Example surname\",\n    \"photo_id\": \"1\"\n}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/customers Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customers",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"name\": \"Example name\",\n    \"surname\": \"Example surname\",\n    \"photo_id\": \"1\"\n}"
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"name\": [\n            \"The name field is required.\"\n        ],\n        \"surname\": [\n            \"The surname field is required.\"\n        ]\n    }\n}"
+                        },
+                        {
+                            "name": "api\/v1\/customers Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customers",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"name\": \"Example name\",\n    \"surname\": \"Example surname\",\n    \"photo_id\": \"1\"\n}"
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Cydney\",\n        \"surname\": \"Kozey\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"updated_by\": {\n            \"id\": 2,\n            \"email\": \"example@mail.ru\",\n            \"username\": \"Test user\",\n            \"is_admin\": false\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/customers\/{customer}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/customers\/:customer",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers\/:customer",
+                            "variable": [
+                                {
+                                    "id": "customer",
+                                    "key": "customer",
+                                    "value": "16",
+                                    "description": "Customer id to show."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/customers\/{customer} Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customers\/:customer",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers\/:customer",
+                                    "variable": [
+                                        {
+                                            "id": "customer",
+                                            "key": "customer",
+                                            "value": "16",
+                                            "description": "Customer id to show."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"error\": \"Resource not found\"\n}"
+                        },
+                        {
+                            "name": "api\/v1\/customers\/{customer} Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customers\/:customer",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers\/:customer",
+                                    "variable": [
+                                        {
+                                            "id": "customer",
+                                            "key": "customer",
+                                            "value": "16",
+                                            "description": "Customer id to show."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Vanessa\",\n        \"surname\": \"O'Keefe\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 3,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 2,\n            \"email\": \"example@mail.ru\",\n            \"username\": \"Test user\",\n            \"is_admin\": false\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/customers\/{customer}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/customers\/:customer",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers\/:customer",
+                            "variable": [
+                                {
+                                    "id": "customer",
+                                    "key": "customer",
+                                    "value": "6",
+                                    "description": "Customer id to update."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/customers\/{customer} Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customers\/:customer",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers\/:customer",
+                                    "variable": [
+                                        {
+                                            "id": "customer",
+                                            "key": "customer",
+                                            "value": "6",
+                                            "description": "Customer id to update."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"error\": \"Resource not found\"\n}"
+                        },
+                        {
+                            "name": "api\/v1\/customers\/{customer} Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customers\/:customer",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers\/:customer",
+                                    "variable": [
+                                        {
+                                            "id": "customer",
+                                            "key": "customer",
+                                            "value": "6",
+                                            "description": "Customer id to update."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Raheem\",\n        \"surname\": \"Mohr\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 3,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/customers\/{customer}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/customers\/:customer",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers\/:customer",
+                            "variable": [
+                                {
+                                    "id": "customer",
+                                    "key": "customer",
+                                    "value": "2",
+                                    "description": "Customer id to remove."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/customers\/{customer} Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customers\/:customer",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers\/:customer",
+                                    "variable": [
+                                        {
+                                            "id": "customer",
+                                            "key": "customer",
+                                            "value": "2",
+                                            "description": "Customer id to remove."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{}"
+                        },
+                        {
+                            "name": "api\/v1\/customers\/{customer} Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customers\/:customer",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers\/:customer",
+                                    "variable": [
+                                        {
+                                            "id": "customer",
+                                            "key": "customer",
+                                            "value": "2",
+                                            "description": "Customer id to remove."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"error\": \"Resource not found\"\n}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Github Authentication",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/v1\/auth\/github",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/github",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/auth\/github"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/auth\/github Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/auth\/github",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/auth\/github"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"url\": \"https:\\\/\\\/github.com\\\/login\\\/oauth\\\/authorize?client_id=9e62a6dce2a56a57c82a&redirect_uri=http%3A%2F%2Ftheam_crm.test%2Fapi%2Fv1%2Fauth%2Fgithub%2Fcallback&scope=user%3Aemail&response_type=code\"\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/auth\/github\/callback",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/github\/callback",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/auth\/github\/callback"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/auth\/github\/callback Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/auth\/github\/callback",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/auth\/github\/callback"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"user\": {\n        \"id\": 1,\n        \"email\": \"example@example.com\",\n        \"username\": \"Github username\",\n        \"is_admin\": false\n    },\n    \"token\": \"BEARER TOKEN\"\n}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Logout endpoint",
+            "description": "\nUsed to \"logout\" user.",
+            "item": [
+                {
+                    "name": "api\/v1\/logout",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/logout",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/logout"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/logout Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/logout",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/logout"
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Photos endpoint",
+            "description": "\nEndpoint used to manage photos",
+            "item": [
+                {
+                    "name": "api\/v1\/photos",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/photos",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/photos"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "photo",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/photos Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/photos",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/photos"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "multipart\/form-data"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "formdata",
+                                    "formdata": [
+                                        {
+                                            "key": "photo",
+                                            "src": [],
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        },
+                        {
+                            "name": "api\/v1\/photos Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/photos",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/photos"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "multipart\/form-data"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "formdata",
+                                    "formdata": [
+                                        {
+                                            "key": "photo",
+                                            "src": [],
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/photos\/{photo}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/photos\/:photo",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/photos\/:photo",
+                            "variable": [
+                                {
+                                    "id": "photo",
+                                    "key": "photo",
+                                    "value": "13",
+                                    "description": "Photo id to remove."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/photos\/{photo} Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/photos\/:photo",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/photos\/:photo",
+                                    "variable": [
+                                        {
+                                            "id": "photo",
+                                            "key": "photo",
+                                            "value": "13",
+                                            "description": "Photo id to remove."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{}"
+                        },
+                        {
+                            "name": "api\/v1\/photos\/{photo} Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/photos\/:photo",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/photos\/:photo",
+                                    "variable": [
+                                        {
+                                            "id": "photo",
+                                            "key": "photo",
+                                            "value": "13",
+                                            "description": "Photo id to remove."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"error\": \"Resource not found\"\n}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User endpoint",
+            "description": "\nEndpoint used to manage CRM users.\n\n<aside class=\"warning\">Only admin users can access this endpoint<\/aside>",
+            "item": [
+                {
+                    "name": "api\/v1\/users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/users Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 100,\n            \"email\": \"bernier.efren@example.net\",\n            \"username\": \"dock.powlowski\",\n            \"is_admin\": null,\n            \"created_at\": \"2021-06-01 15:12:55\",\n            \"updated_at\": \"2021-06-01 15:12:55\"\n        },\n        {\n            \"id\": 101,\n            \"email\": \"fbosco@example.org\",\n            \"username\": \"leonel.daniel\",\n            \"is_admin\": null,\n            \"created_at\": \"2021-06-01 15:12:55\",\n            \"updated_at\": \"2021-06-01 15:12:55\"\n        }\n    ]\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"email@example.com\",\n    \"username\": \"Example github username\"\n}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/users Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"email\": \"email@example.com\",\n    \"username\": \"Example github username\"\n}"
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"email\": [\n            \"The email field is required.\"\n        ],\n        \"username\": [\n            \"The username field is required.\"\n        ]\n    }\n}"
+                        },
+                        {
+                            "name": "api\/v1\/users Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"email\": \"email@example.com\",\n    \"username\": \"Example github username\"\n}"
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": 102,\n        \"email\": \"yblanda@example.org\",\n        \"username\": \"zokon\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 15:12:55\",\n        \"updated_at\": \"2021-06-01 15:12:55\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/users\/{user}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "corporis",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "int",
+                                    "key": "int",
+                                    "value": "est",
+                                    "description": "\u0413\u044b\u0443\u043a id to show."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/users\/{user} Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users\/:user",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user",
+                                    "variable": [
+                                        {
+                                            "id": "user",
+                                            "key": "user",
+                                            "value": "corporis",
+                                            "description": ""
+                                        },
+                                        {
+                                            "id": "int",
+                                            "key": "int",
+                                            "value": "est",
+                                            "description": "\u0413\u044b\u0443\u043a id to show."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"error\": \"Resource not found\"\n}"
+                        },
+                        {
+                            "name": "api\/v1\/users\/{user} Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users\/:user",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user",
+                                    "variable": [
+                                        {
+                                            "id": "user",
+                                            "key": "user",
+                                            "value": "corporis",
+                                            "description": ""
+                                        },
+                                        {
+                                            "id": "int",
+                                            "key": "int",
+                                            "value": "est",
+                                            "description": "\u0413\u044b\u0443\u043a id to show."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": 103,\n        \"email\": \"mcdermott.elmer@example.net\",\n        \"username\": \"aimee.rice\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 15:12:55\",\n        \"updated_at\": \"2021-06-01 15:12:55\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/users\/{user}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "20",
+                                    "description": "User id to update."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/users\/{user} Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users\/:user",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user",
+                                    "variable": [
+                                        {
+                                            "id": "user",
+                                            "key": "user",
+                                            "value": "20",
+                                            "description": "User id to update."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"error\": \"Resource not found\"\n}"
+                        },
+                        {
+                            "name": "api\/v1\/users\/{user} Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users\/:user",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user",
+                                    "variable": [
+                                        {
+                                            "id": "user",
+                                            "key": "user",
+                                            "value": "20",
+                                            "description": "User id to update."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": 104,\n        \"email\": \"lottie.auer@example.com\",\n        \"username\": \"rolfson.casey\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 15:12:55\",\n        \"updated_at\": \"2021-06-01 15:12:55\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/users\/{user}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "20",
+                                    "description": "User id to remove."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/users\/{user} Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users\/:user",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user",
+                                    "variable": [
+                                        {
+                                            "id": "user",
+                                            "key": "user",
+                                            "value": "20",
+                                            "description": "User id to remove."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{}"
+                        },
+                        {
+                            "name": "api\/v1\/users\/{user} Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users\/:user",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user",
+                                    "variable": [
+                                        {
+                                            "id": "user",
+                                            "key": "user",
+                                            "value": "20",
+                                            "description": "User id to remove."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"error\": \"Resource not found\"\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/users\/{user}\/toggle_admin",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user\/toggle_admin",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user\/toggle_admin",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "17",
+                                    "description": "User id to toggle admin role."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "api\/v1\/users\/{user}\/toggle_admin Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users\/:user\/toggle_admin",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user\/toggle_admin",
+                                    "variable": [
+                                        {
+                                            "id": "user",
+                                            "key": "user",
+                                            "value": "17",
+                                            "description": "User id to toggle admin role."
+                                        }
+                                    ]
+                                },
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"error\": \"Resource not found\"\n}"
+                        },
+                        {
+                            "name": "api\/v1\/users\/{user}\/toggle_admin Response #2",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/users\/:user\/toggle_admin",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users\/:user\/toggle_admin",
+                                    "variable": [
+                                        {
+                                            "id": "user",
+                                            "key": "user",
+                                            "value": "17",
+                                            "description": "User id to toggle admin role."
+                                        }
+                                    ]
+                                },
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": 105,\n        \"email\": \"nasir.dooley@example.net\",\n        \"username\": \"lavina79\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 15:12:55\",\n        \"updated_at\": \"2021-06-01 15:12:55\"\n    }\n}"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer"
+    }
+}

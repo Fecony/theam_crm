@@ -12,20 +12,20 @@ Endpoint used to manage photos
 
 ```bash
 curl -X POST \
-    "http://theam_crm.test/api/v1/photos" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    "[YOUR APP URL]/api/v1/photos" \
+    -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpyrTcQf" 
+    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpWti3Os" 
 ```
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/photos"
+    "[YOUR APP URL]/api/v1/photos"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {TOKEN}",
     "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
@@ -44,16 +44,16 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://theam_crm.test/api/v1/photos',
+    '[YOUR APP URL]/api/v1/photos',
     [
         'headers' => [
-            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
         'multipart' => [
             [
                 'name' => 'photo',
-                'contents' => fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpyrTcQf', 'r')
+                'contents' => fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpWti3Os', 'r')
             ],
         ],
     ]
@@ -96,7 +96,7 @@ print_r(json_decode((string) $body));
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-v1-photos"></code></pre>
 </div>
-<form id="form-POSTapi-v1-photos" data-method="POST" data-path="api/v1/photos" data-authed="1" data-hasfiles="1" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"multipart\/form-data","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-photos', this);">
+<form id="form-POSTapi-v1-photos" data-method="POST" data-path="api/v1/photos" data-authed="1" data-hasfiles="1" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"multipart\/form-data","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-photos', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
     </h3>
@@ -128,19 +128,19 @@ The image.
 
 ```bash
 curl -X DELETE \
-    "http://theam_crm.test/api/v1/photos/15" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    "[YOUR APP URL]/api/v1/photos/13" \
+    -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/photos/15"
+    "[YOUR APP URL]/api/v1/photos/13"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -156,10 +156,10 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://theam_crm.test/api/v1/photos/15',
+    '[YOUR APP URL]/api/v1/photos/13',
     [
         'headers' => [
-            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
     ]
@@ -189,7 +189,7 @@ print_r(json_decode((string) $body));
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-DELETEapi-v1-photos--photo-"></code></pre>
 </div>
-<form id="form-DELETEapi-v1-photos--photo-" data-method="DELETE" data-path="api/v1/photos/{photo}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-photos--photo-', this);">
+<form id="form-DELETEapi-v1-photos--photo-" data-method="DELETE" data-path="api/v1/photos/{photo}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-photos--photo-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
     </h3>

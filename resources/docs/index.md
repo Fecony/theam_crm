@@ -35,5 +35,5 @@ You can switch the language used with the tabs at the top right (or from the nav
 > Base URL
 
 ```yaml
-http://theam_crm.test
+[YOUR APP URL]
 ```

@@ -1,0 +1,799 @@
+openapi: 3.0.3
+info:
+    title: 'THEAM CRM API'
+    description: 'Small API for CRM system to manage customers'
+    version: 1.0.0
+servers:
+    -
+        url: '[YOUR APP URL]'
+paths:
+    /api/v1/customers:
+        get:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: null, name: Sabrina, surname: Durgan, photoUrl: null, created_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' }, { id: null, name: Queenie, surname: Brekke, photoUrl: null, created_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' }]
+                                properties:
+                                    data: { type: array, example: [{ id: null, name: Sabrina, surname: Durgan, photoUrl: null, created_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' }, { id: null, name: Queenie, surname: Brekke, photoUrl: null, created_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' }], items: { type: object } }
+            tags:
+                - 'Customer endpoint'
+        post:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                422:
+                    description: '422, error'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'The given data was invalid.'
+                                    errors: { name: ['The name field is required.'], surname: ['The surname field is required.'] }
+                                properties:
+                                    message: { type: string, example: 'The given data was invalid.' }
+                                    errors: { type: object, example: { name: ['The name field is required.'], surname: ['The surname field is required.'] } }
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: null, name: Cydney, surname: Kozey, photoUrl: null, created_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' }
+                                properties:
+                                    data: { type: object, example: { id: null, name: Cydney, surname: Kozey, photoUrl: null, created_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' } }
+            tags:
+                - 'Customer endpoint'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                name:
+                                    type: string
+                                    description: 'Customer name.'
+                                    example: 'Example name'
+                                surname:
+                                    type: string
+                                    description: 'Customer surname.'
+                                    example: 'Example surname'
+                                photo_id:
+                                    type: string
+                                    description: 'Photo id.'
+                                    example: '1'
+                            required:
+                                - name
+                                - surname
+    '/api/v1/customers/{customer}':
+        get:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                404:
+                    description: '404, not found'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'Resource not found'
+                                properties:
+                                    error: { type: string, example: 'Resource not found' }
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: null, name: Vanessa, surname: 'O''Keefe', photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' }
+                                properties:
+                                    data: { type: object, example: { id: null, name: Vanessa, surname: 'O''Keefe', photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' } }
+            tags:
+                - 'Customer endpoint'
+        put:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                404:
+                    description: '404, not found'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'Resource not found'
+                                properties:
+                                    error: { type: string, example: 'Resource not found' }
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: null, name: Raheem, surname: Mohr, photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' }
+                                properties:
+                                    data: { type: object, example: { id: null, name: Raheem, surname: Mohr, photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' } }
+            tags:
+                - 'Customer endpoint'
+        delete:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                204:
+                    description: '204, success'
+                404:
+                    description: '404, not found'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'Resource not found'
+                                properties:
+                                    error: { type: string, example: 'Resource not found' }
+            tags:
+                - 'Customer endpoint'
+        parameters:
+            -
+                in: path
+                name: customer
+                description: 'Customer id to show.'
+                example: 16
+                required: true
+                schema:
+                    type: integer
+    /api/v1/auth/github:
+        get:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    url: 'https://github.com/login/oauth/authorize?client_id=9e62a6dce2a56a57c82a&redirect_uri=http%3A%2F%2Ftheam_crm.test%2Fapi%2Fv1%2Fauth%2Fgithub%2Fcallback&scope=user%3Aemail&response_type=code'
+                                properties:
+                                    url: { type: string, example: 'https://github.com/login/oauth/authorize?client_id=9e62a6dce2a56a57c82a&redirect_uri=http%3A%2F%2Ftheam_crm.test%2Fapi%2Fv1%2Fauth%2Fgithub%2Fcallback&scope=user%3Aemail&response_type=code' }
+            tags:
+                - 'Github Authentication'
+            security: []
+    /api/v1/auth/github/callback:
+        get:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    user: { id: 1, email: example@example.com, username: 'Github username', is_admin: false }
+                                    token: 'BEARER TOKEN'
+                                properties:
+                                    user: { type: object, example: { id: 1, email: example@example.com, username: 'Github username', is_admin: false } }
+                                    token: { type: string, example: 'BEARER TOKEN' }
+            tags:
+                - 'Github Authentication'
+            security: []
+    /api/v1/logout:
+        delete:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                204:
+                    description: '204, success'
+            tags:
+                - 'Logout endpoint'
+    /api/v1/photos:
+        post:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: multipart/form-data
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                201:
+                    description: '201, success'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"photo\": {\n  \"name\": \"lpSHaesceD8_1622373059.jpg\",\n  \"path\": \"public/photos/lpSHaesceD8_1622373059.jpg\",\n  \"updated_at\": \"2021-05-30T11:10:59.000000Z\",\n  \"created_at\": \"2021-05-30T11:10:59.000000Z\",\n  \"id\": 1\n}"
+                422:
+                    description: '422, error'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"The given data was invalid.\",\n \"errors\": {\n  \"photo\": [\n    \"The photo must be a file of type: png, jpg, jpeg.\"\n  ]\n}"
+            tags:
+                - 'Photos endpoint'
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                photo:
+                                    type: string
+                                    format: binary
+                                    description: 'The image.'
+                            required:
+                                - photo
+    '/api/v1/photos/{photo}':
+        delete:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                204:
+                    description: '204, success'
+                404:
+                    description: '404, not found'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'Resource not found'
+                                properties:
+                                    error: { type: string, example: 'Resource not found' }
+            tags:
+                - 'Photos endpoint'
+        parameters:
+            -
+                in: path
+                name: photo
+                description: 'Photo id to remove.'
+                example: 13
+                required: true
+                schema:
+                    type: integer
+    /api/v1/users:
+        get:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 100, email: bernier.efren@example.net, username: dock.powlowski, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' }, { id: 101, email: fbosco@example.org, username: leonel.daniel, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' }]
+                                properties:
+                                    data: { type: array, example: [{ id: 100, email: bernier.efren@example.net, username: dock.powlowski, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' }, { id: 101, email: fbosco@example.org, username: leonel.daniel, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' }], items: { type: object } }
+            tags:
+                - 'User endpoint'
+        post:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                422:
+                    description: '422, error'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'The given data was invalid.'
+                                    errors: { email: ['The email field is required.'], username: ['The username field is required.'] }
+                                properties:
+                                    message: { type: string, example: 'The given data was invalid.' }
+                                    errors: { type: object, example: { email: ['The email field is required.'], username: ['The username field is required.'] } }
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: 102, email: yblanda@example.org, username: zokon, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' }
+                                properties:
+                                    data: { type: object, example: { id: 102, email: yblanda@example.org, username: zokon, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' } }
+            tags:
+                - 'User endpoint'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'User email The value must be a valid email address.'
+                                    example: email@example.com
+                                username:
+                                    type: string
+                                    description: 'User username.'
+                                    example: 'Example github username'
+                            required:
+                                - email
+                                - username
+    '/api/v1/users/{user}':
+        get:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                404:
+                    description: '404, not found'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'Resource not found'
+                                properties:
+                                    error: { type: string, example: 'Resource not found' }
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: 103, email: mcdermott.elmer@example.net, username: aimee.rice, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' }
+                                properties:
+                                    data: { type: object, example: { id: 103, email: mcdermott.elmer@example.net, username: aimee.rice, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' } }
+            tags:
+                - 'User endpoint'
+        put:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                404:
+                    description: '404, not found'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'Resource not found'
+                                properties:
+                                    error: { type: string, example: 'Resource not found' }
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: 104, email: lottie.auer@example.com, username: rolfson.casey, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' }
+                                properties:
+                                    data: { type: object, example: { id: 104, email: lottie.auer@example.com, username: rolfson.casey, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' } }
+            tags:
+                - 'User endpoint'
+        delete:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                204:
+                    description: '204, success'
+                404:
+                    description: '404, not found'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'Resource not found'
+                                properties:
+                                    error: { type: string, example: 'Resource not found' }
+            tags:
+                - 'User endpoint'
+        parameters:
+            -
+                in: path
+                name: user
+                description: ''
+                example: corporis
+                required: true
+                schema:
+                    type: string
+            -
+                in: path
+                name: int
+                description: 'Гыук id to show.'
+                example: est
+                required: true
+                schema:
+                    type: string
+    '/api/v1/users/{user}/toggle_admin':
+        patch:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {TOKEN}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                404:
+                    description: '404, not found'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    error: 'Resource not found'
+                                properties:
+                                    error: { type: string, example: 'Resource not found' }
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: 105, email: nasir.dooley@example.net, username: lavina79, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' }
+                                properties:
+                                    data: { type: object, example: { id: 105, email: nasir.dooley@example.net, username: lavina79, is_admin: null, created_at: '2021-06-01 15:12:55', updated_at: '2021-06-01 15:12:55' } }
+            tags:
+                - 'User endpoint'
+        parameters:
+            -
+                in: path
+                name: user
+                description: 'User id to toggle admin role.'
+                example: 17
+                required: true
+                schema:
+                    type: integer
+components:
+    securitySchemes:
+        default:
+            type: http
+            scheme: bearer
+            description: ''
+security:
+    -
+        default: []
