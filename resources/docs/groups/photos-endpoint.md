@@ -2,7 +2,7 @@
 
 Endpoint used to manage photos
 
-## api/v1/photos
+## Upload photo
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -16,7 +16,7 @@ curl -X POST \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpzJb0HE" 
+    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phptgVxFX" 
 ```
 
 ```javascript
@@ -53,7 +53,7 @@ $response = $client->post(
         'multipart' => [
             [
                 'name' => 'photo',
-                'contents' => fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpzJb0HE', 'r')
+                'contents' => fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phptgVxFX', 'r')
             ],
         ],
     ]
@@ -118,7 +118,7 @@ The image.
 </form>
 
 
-## api/v1/photos/{photo}
+## Delete photo
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -128,7 +128,7 @@ The image.
 
 ```bash
 curl -X DELETE \
-    "[YOUR APP URL]/api/v1/photos/1" \
+    "[YOUR APP URL]/api/v1/photos/13" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -136,7 +136,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/photos/1"
+    "[YOUR APP URL]/api/v1/photos/13"
 );
 
 let headers = {
@@ -156,7 +156,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    '[YOUR APP URL]/api/v1/photos/1',
+    '[YOUR APP URL]/api/v1/photos/13',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',

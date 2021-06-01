@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "THEAM CRM API",
-        "_postman_id": "c118d67b-0352-42ed-b115-428d389b3c36",
+        "_postman_id": "0c62ca56-2fe3-4cfe-b689-aba969da7cc5",
         "description": "Small API for CRM system to manage customers",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "\nEndpoint used to manage CRM customers.",
             "item": [
                 {
-                    "name": "api\/v1\/customers",
+                    "name": "Get list of customers",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -58,7 +58,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/customers Response #1",
+                            "name": "Get list of customers Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -101,7 +101,7 @@
                     ]
                 },
                 {
-                    "name": "api\/v1\/customers",
+                    "name": "Create new customer",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -129,7 +129,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/customers Response #1",
+                            "name": "Create new customer Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -160,7 +160,7 @@
                             "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"name\": [\n            \"The name field is required.\"\n        ],\n        \"surname\": [\n            \"The surname field is required.\"\n        ]\n    }\n}"
                         },
                         {
-                            "name": "api\/v1\/customers Response #2",
+                            "name": "Create new customer Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -188,12 +188,12 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Carlos\",\n        \"surname\": \"Lemke\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 3,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Ofelia\",\n        \"surname\": \"Hammes\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 3,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
                         }
                     ]
                 },
                 {
-                    "name": "api\/v1\/customers\/{customer}",
+                    "name": "Get customer by id",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -226,7 +226,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/customers\/{customer} Response #1",
+                            "name": "Get customer by id Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -262,7 +262,7 @@
                             "body": "{\n    \"error\": \"Resource not found\"\n}"
                         },
                         {
-                            "name": "api\/v1\/customers\/{customer} Response #2",
+                            "name": "Get customer by id Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -295,12 +295,12 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Marianne\",\n        \"surname\": \"Senger\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"updated_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Cristopher\",\n        \"surname\": \"Hansen\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 2,\n            \"email\": \"example@mail.ru\",\n            \"username\": \"Test user\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
                         }
                     ]
                 },
                 {
-                    "name": "api\/v1\/customers\/{customer}",
+                    "name": "Update customer",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -333,7 +333,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/customers\/{customer} Response #1",
+                            "name": "Update customer Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -369,7 +369,7 @@
                             "body": "{\n    \"error\": \"Resource not found\"\n}"
                         },
                         {
-                            "name": "api\/v1\/customers\/{customer} Response #2",
+                            "name": "Update customer Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -402,12 +402,12 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Else\",\n        \"surname\": \"Gislason\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 2,\n            \"email\": \"example@mail.ru\",\n            \"username\": \"Test user\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 2,\n            \"email\": \"example@mail.ru\",\n            \"username\": \"Test user\",\n            \"is_admin\": false\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Hosea\",\n        \"surname\": \"Howell\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 3,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 3,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
                         }
                     ]
                 },
                 {
-                    "name": "api\/v1\/customers\/{customer}",
+                    "name": "Delete customer",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -419,7 +419,7 @@
                                 {
                                     "id": "customer",
                                     "key": "customer",
-                                    "value": "18",
+                                    "value": "19",
                                     "description": "Customer id to remove."
                                 }
                             ]
@@ -440,7 +440,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/customers\/{customer} Response #1",
+                            "name": "Delete customer Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -452,7 +452,7 @@
                                         {
                                             "id": "customer",
                                             "key": "customer",
-                                            "value": "18",
+                                            "value": "19",
                                             "description": "Customer id to remove."
                                         }
                                     ]
@@ -476,7 +476,7 @@
                             "body": "{}"
                         },
                         {
-                            "name": "api\/v1\/customers\/{customer} Response #2",
+                            "name": "Delete customer Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -488,7 +488,7 @@
                                         {
                                             "id": "customer",
                                             "key": "customer",
-                                            "value": "18",
+                                            "value": "19",
                                             "description": "Customer id to remove."
                                         }
                                     ]
@@ -648,7 +648,7 @@
             "description": "\nUsed to \"logout\" user.",
             "item": [
                 {
-                    "name": "api\/v1\/logout",
+                    "name": "Logout user",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -669,11 +669,11 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
+                        "description": "This endpoint will remove current user personal token"
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/logout Response #1",
+                            "name": "Logout user Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -694,7 +694,7 @@
                                     }
                                 ],
                                 "body": null,
-                                "description": ""
+                                "description": "This endpoint will remove current user personal token"
                             },
                             "header": null,
                             "cookie": [],
@@ -709,7 +709,7 @@
             "description": "\nEndpoint used to manage photos",
             "item": [
                 {
-                    "name": "api\/v1\/photos",
+                    "name": "Upload photo",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -743,7 +743,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/photos Response #1",
+                            "name": "Upload photo Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -780,7 +780,7 @@
                             "body": "null"
                         },
                         {
-                            "name": "api\/v1\/photos Response #2",
+                            "name": "Upload photo Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -819,7 +819,7 @@
                     ]
                 },
                 {
-                    "name": "api\/v1\/photos\/{photo}",
+                    "name": "Delete photo",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -831,7 +831,7 @@
                                 {
                                     "id": "photo",
                                     "key": "photo",
-                                    "value": "1",
+                                    "value": "13",
                                     "description": "Photo id to remove."
                                 }
                             ]
@@ -852,7 +852,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/photos\/{photo} Response #1",
+                            "name": "Delete photo Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -864,7 +864,7 @@
                                         {
                                             "id": "photo",
                                             "key": "photo",
-                                            "value": "1",
+                                            "value": "13",
                                             "description": "Photo id to remove."
                                         }
                                     ]
@@ -888,7 +888,7 @@
                             "body": "{}"
                         },
                         {
-                            "name": "api\/v1\/photos\/{photo} Response #2",
+                            "name": "Delete photo Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -900,7 +900,7 @@
                                         {
                                             "id": "photo",
                                             "key": "photo",
-                                            "value": "1",
+                                            "value": "13",
                                             "description": "Photo id to remove."
                                         }
                                     ]
@@ -932,7 +932,7 @@
             "description": "\nEndpoint used to manage CRM users.\n\n<aside class=\"warning\">Only admin users can access this endpoint<\/aside>",
             "item": [
                 {
-                    "name": "api\/v1\/users",
+                    "name": "Get list of users",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -970,7 +970,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/users Response #1",
+                            "name": "Get list of users Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1013,7 +1013,7 @@
                     ]
                 },
                 {
-                    "name": "api\/v1\/users",
+                    "name": "Create user",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -1041,7 +1041,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/users Response #1",
+                            "name": "Create user Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1072,7 +1072,7 @@
                             "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"email\": [\n            \"The email field is required.\"\n        ],\n        \"username\": [\n            \"The username field is required.\"\n        ]\n    }\n}"
                         },
                         {
-                            "name": "api\/v1\/users Response #2",
+                            "name": "Create user Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1100,12 +1100,12 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": 398,\n        \"email\": \"filiberto41@example.org\",\n        \"username\": \"jupton\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:08:54\",\n        \"updated_at\": \"2021-06-01 17:08:54\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": 422,\n        \"email\": \"rkoepp@example.org\",\n        \"username\": \"schmitt.alvis\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:28:15\",\n        \"updated_at\": \"2021-06-01 17:28:15\"\n    }\n}"
                         }
                     ]
                 },
                 {
-                    "name": "api\/v1\/users\/{user}",
+                    "name": "Get user by id",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -1117,14 +1117,8 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "nobis",
-                                    "description": ""
-                                },
-                                {
-                                    "id": "int",
-                                    "key": "int",
-                                    "value": "sed",
-                                    "description": "\u0413\u044b\u0443\u043a id to show."
+                                    "value": "12",
+                                    "description": "User id to show."
                                 }
                             ]
                         },
@@ -1144,7 +1138,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/users\/{user} Response #1",
+                            "name": "Get user by id Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1156,14 +1150,8 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "nobis",
-                                            "description": ""
-                                        },
-                                        {
-                                            "id": "int",
-                                            "key": "int",
-                                            "value": "sed",
-                                            "description": "\u0413\u044b\u0443\u043a id to show."
+                                            "value": "12",
+                                            "description": "User id to show."
                                         }
                                     ]
                                 },
@@ -1186,7 +1174,7 @@
                             "body": "{\n    \"error\": \"Resource not found\"\n}"
                         },
                         {
-                            "name": "api\/v1\/users\/{user} Response #2",
+                            "name": "Get user by id Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1198,14 +1186,8 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "nobis",
-                                            "description": ""
-                                        },
-                                        {
-                                            "id": "int",
-                                            "key": "int",
-                                            "value": "sed",
-                                            "description": "\u0413\u044b\u0443\u043a id to show."
+                                            "value": "12",
+                                            "description": "User id to show."
                                         }
                                     ]
                                 },
@@ -1225,12 +1207,12 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": 399,\n        \"email\": \"marks.maci@example.net\",\n        \"username\": \"dherzog\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:08:54\",\n        \"updated_at\": \"2021-06-01 17:08:54\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": 423,\n        \"email\": \"frederique89@example.net\",\n        \"username\": \"cecelia.harris\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:28:15\",\n        \"updated_at\": \"2021-06-01 17:28:15\"\n    }\n}"
                         }
                     ]
                 },
                 {
-                    "name": "api\/v1\/users\/{user}",
+                    "name": "Update user",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -1242,7 +1224,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "12",
+                                    "value": "7",
                                     "description": "User id to update."
                                 }
                             ]
@@ -1263,7 +1245,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/users\/{user} Response #1",
+                            "name": "Update user Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1275,7 +1257,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "12",
+                                            "value": "7",
                                             "description": "User id to update."
                                         }
                                     ]
@@ -1299,7 +1281,7 @@
                             "body": "{\n    \"error\": \"Resource not found\"\n}"
                         },
                         {
-                            "name": "api\/v1\/users\/{user} Response #2",
+                            "name": "Update user Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1311,7 +1293,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "12",
+                                            "value": "7",
                                             "description": "User id to update."
                                         }
                                     ]
@@ -1332,12 +1314,12 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": 400,\n        \"email\": \"zieme.destini@example.net\",\n        \"username\": \"lia68\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:08:54\",\n        \"updated_at\": \"2021-06-01 17:08:54\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": 424,\n        \"email\": \"romaine.trantow@example.org\",\n        \"username\": \"heller.river\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:28:15\",\n        \"updated_at\": \"2021-06-01 17:28:15\"\n    }\n}"
                         }
                     ]
                 },
                 {
-                    "name": "api\/v1\/users\/{user}",
+                    "name": "Delete user",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -1349,7 +1331,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "2",
+                                    "value": "17",
                                     "description": "User id to remove."
                                 }
                             ]
@@ -1370,7 +1352,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/users\/{user} Response #1",
+                            "name": "Delete user Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1382,7 +1364,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "2",
+                                            "value": "17",
                                             "description": "User id to remove."
                                         }
                                     ]
@@ -1406,7 +1388,7 @@
                             "body": "{}"
                         },
                         {
-                            "name": "api\/v1\/users\/{user} Response #2",
+                            "name": "Delete user Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1418,7 +1400,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "2",
+                                            "value": "17",
                                             "description": "User id to remove."
                                         }
                                     ]
@@ -1444,7 +1426,7 @@
                     ]
                 },
                 {
-                    "name": "api\/v1\/users\/{user}\/toggle_admin",
+                    "name": "Toggle admin state",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -1456,7 +1438,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "5",
+                                    "value": "12",
                                     "description": "User id to toggle admin role."
                                 }
                             ]
@@ -1477,7 +1459,7 @@
                     },
                     "response": [
                         {
-                            "name": "api\/v1\/users\/{user}\/toggle_admin Response #1",
+                            "name": "Toggle admin state Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1489,7 +1471,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "5",
+                                            "value": "12",
                                             "description": "User id to toggle admin role."
                                         }
                                     ]
@@ -1513,7 +1495,7 @@
                             "body": "{\n    \"error\": \"Resource not found\"\n}"
                         },
                         {
-                            "name": "api\/v1\/users\/{user}\/toggle_admin Response #2",
+                            "name": "Toggle admin state Response #2",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -1525,7 +1507,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "5",
+                                            "value": "12",
                                             "description": "User id to toggle admin role."
                                         }
                                     ]
@@ -1546,7 +1528,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": 401,\n        \"email\": \"bogan.ray@example.net\",\n        \"username\": \"haleigh.christiansen\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:08:54\",\n        \"updated_at\": \"2021-06-01 17:08:54\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": 425,\n        \"email\": \"grant36@example.org\",\n        \"username\": \"asia35\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:28:15\",\n        \"updated_at\": \"2021-06-01 17:28:15\"\n    }\n}"
                         }
                     ]
                 }

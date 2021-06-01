@@ -2,11 +2,11 @@
 
 Used to "logout" user.
 
-## api/v1/logout
+## Logout user
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+This endpoint will remove current user personal token
 
 > Example request:
 

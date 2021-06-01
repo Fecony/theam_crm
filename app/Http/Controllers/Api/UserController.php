@@ -21,6 +21,8 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends Controller
 {
     /**
+     * Get list of users
+     *
      * @responseFile storage/responses/users.get.json
      */
     public function index(): AnonymousResourceCollection
@@ -29,6 +31,8 @@ class UserController extends Controller
     }
 
     /**
+     * Create user
+     *
      * @apiResource App\Http\Resources\UserResource
      * @apiResourceModel App\Models\User
      *
@@ -54,7 +58,9 @@ class UserController extends Controller
     }
 
     /**
-     * @urlParam гыук int required Гыук id to show.
+     * Get user by id
+     *
+     * @urlParam user int required User id to show.
      *
      * @apiResource App\Http\Resources\UserResource
      * @apiResourceModel App\Models\User
@@ -72,6 +78,8 @@ class UserController extends Controller
     }
 
     /**
+     * Update user
+     *
      * @urlParam user int required User id to update.
      *
      * @apiResource App\Http\Resources\UserResource
@@ -92,6 +100,8 @@ class UserController extends Controller
     }
 
     /**
+     * Delete user
+     * 
      * @urlParam user int required User id to remove.
      *
      * @response status=204 scenario=success {}

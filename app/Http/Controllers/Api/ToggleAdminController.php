@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 class ToggleAdminController extends Controller
 {
     /**
+     * Toggle admin state
+     *
      * @urlParam user int required User id to toggle admin role.
      *
      * @apiResource App\Http\Resources\UserResource

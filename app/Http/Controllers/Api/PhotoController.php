@@ -17,6 +17,8 @@ use Symfony\Component\HttpFoundation\Response;
 class PhotoController extends Controller
 {
     /**
+     * Upload photo
+     *
      * @bodyParam photo file required The image.
      *
      * @response status=201 scenario=success {
@@ -60,6 +62,8 @@ class PhotoController extends Controller
     }
 
     /**
+     * Delete photo
+     *
      * @urlParam photo int required Photo id to remove.
      *
      * @response status=204 scenario=success {}

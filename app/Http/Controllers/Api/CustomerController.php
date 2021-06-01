@@ -19,6 +19,8 @@ use Symfony\Component\HttpFoundation\Response;
 class CustomerController extends Controller
 {
     /**
+     * Get list of customers
+     *
      * @responseFile storage/responses/customers.get.json
      */
     public function index(): AnonymousResourceCollection
@@ -29,6 +31,8 @@ class CustomerController extends Controller
     }
 
     /**
+     * Create new customer
+     *
      * @apiResource App\Http\Resources\CustomerResource
      * @apiResourceModel App\Models\Customer
      *
@@ -54,6 +58,8 @@ class CustomerController extends Controller
     }
 
     /**
+     * Get customer by id
+     *
      * @urlParam customer int required Customer id to show.
      *
      * @apiResource App\Http\Resources\CustomerResource
@@ -72,6 +78,8 @@ class CustomerController extends Controller
     }
 
     /**
+     * Update customer
+     *
      * @urlParam customer int required Customer id to update.
      *
      * @apiResource App\Http\Resources\CustomerResource
@@ -92,6 +100,8 @@ class CustomerController extends Controller
     }
 
     /**
+     * Delete customer
+     *
      * @urlParam customer int required Customer id to remove.
      *
      * @response status=204 scenario=success {}

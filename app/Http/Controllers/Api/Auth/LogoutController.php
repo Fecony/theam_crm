@@ -15,6 +15,10 @@ use Symfony\Component\HttpFoundation\Response;
 class LogoutController extends Controller
 {
     /**
+     * Logout user
+     *
+     * This endpoint will remove current user personal token
+     *
      * @authorized
      *
      * @response 204 scenario=success {}
