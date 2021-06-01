@@ -2,6 +2,28 @@
 
 CRM API Service used to manage customers.
 
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Things you will need:
+
+- [PHP](https://www.php.net/downloads.php)
+- [Composer](https://getcomposer.org/download/)
+- [Docker](https://docs.docker.com/get-docker/) (not required)
+- [Valet](https://laravel.com/docs/8.x/valet) (not required)
+  - [Valet +](https://github.com/weprovide/valet-plus)
+
+Things you might need to test API:
+- [Postman](https://www.postman.com/downloads/)
+- [Insomnia](https://insomnia.rest/download)
+
+Or you can use [hoppscotch](https://hoppscotch.io/)!
+
+#### If you are not going to use Docker make sure you have all required PHP extensions installed on your local machine https://laravel.com/docs/8.x/deployment#server-requirements
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your `.env` file
@@ -41,6 +63,8 @@ Copy .env.example file to .env on the root folder.
 ```
 
 Run `php artisan key:generate` to generate app key.
+
+Run `php artisan storage:link` to create the symbolic link.
 
 ## Run Locally
 
