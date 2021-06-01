@@ -114,6 +114,25 @@ To run application using Laravel built in server run following artisan command:
 
 Then you can access you app running on <http://127.0.0.1:8000>
 
+## Authorization flow ✨
+
+In order to access protected API endpoints you have to authentication user by using "Github Authentication" - `api/v1/auth/github` endpoint.
+You will get url that user has to visit in order to give us access to his Github Account. After successful authentication user will be redirected and you will receive user basic information with token that you have to use for authorization.
+
+> Example response: 
+
+```
+"user": {
+  "id": 1,
+  "email": "example@example.com",
+  "username": "Github username",
+  "is_admin": false
+},
+"token": "BEARER TOKEN"
+```
+
+#### To authenticate requests, include an Authorization header with the value "Bearer {BEARER TOKEN}".
+
 ## Documentation
 
 > Note: Thes aren't any published docs so you have to generate them on your own :(
