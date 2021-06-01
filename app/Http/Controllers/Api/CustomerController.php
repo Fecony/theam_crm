@@ -19,12 +19,13 @@ use Symfony\Component\HttpFoundation\Response;
 class CustomerController extends Controller
 {
     /**
-     * @apiResourceCollection App\Http\Resources\CustomerResource
-     * @apiResourceModel App\Models\Customer
+     * @responseFile storage/responses/customers.get.json
      */
     public function index(): AnonymousResourceCollection
     {
-        return CustomerResource::collection(Customer::with(['photo', 'createdBy', 'updatedBy'])->get());
+        return CustomerResource::collection(
+            Customer::with(['photo', 'createdBy', 'updatedBy'])->apiPaginate()
+        );
     }
 
     /**

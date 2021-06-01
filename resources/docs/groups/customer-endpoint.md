@@ -12,7 +12,7 @@ Endpoint used to manage CRM customers.
 
 ```bash
 curl -X GET \
-    -G "[YOUR APP URL]/api/v1/customers" \
+    -G "[YOUR APP URL]/api/v1/customers?page=1&perPage=16" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -22,6 +22,13 @@ curl -X GET \
 const url = new URL(
     "[YOUR APP URL]/api/v1/customers"
 );
+
+let params = {
+    "page": "1",
+    "perPage": "16",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer {TOKEN}",
@@ -46,6 +53,10 @@ $response = $client->get(
             'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
+        'query' => [
+            'page'=> '1',
+            'perPage'=> '16',
+        ],
     ]
 );
 $body = $response->getBody();
@@ -59,9 +70,9 @@ print_r(json_decode((string) $body));
 {
     "data": [
         {
-            "id": null,
-            "name": "Sabrina",
-            "surname": "Durgan",
+            "id": 1,
+            "name": "name 1",
+            "surname": "surname",
             "photoUrl": null,
             "created_by": {
                 "id": 1,
@@ -70,35 +81,57 @@ print_r(json_decode((string) $body));
                 "is_admin": true
             },
             "updated_by": {
-                "id": 2,
-                "email": "example@mail.ru",
-                "username": "Test user",
-                "is_admin": false
-            },
-            "created_at": "",
-            "updated_at": ""
-        },
-        {
-            "id": null,
-            "name": "Queenie",
-            "surname": "Brekke",
-            "photoUrl": null,
-            "created_by": {
                 "id": 1,
                 "email": "tagils@mail.ru",
                 "username": "Fecony",
                 "is_admin": true
             },
-            "updated_by": {
-                "id": 2,
-                "email": "example@mail.ru",
-                "username": "Test user",
-                "is_admin": false
-            },
-            "created_at": "",
-            "updated_at": ""
+            "created_at": "2021-05-30 11:11:06",
+            "updated_at": "2021-05-30 11:25:12"
         }
-    ]
+    ],
+    "links": {
+        "first": "http:\/\/theam_crm.test\/api\/v1\/customers?page=1",
+        "last": "http:\/\/theam_crm.test\/api\/v1\/customers?page=3",
+        "prev": null,
+        "next": "http:\/\/theam_crm.test\/api\/v1\/customers?page=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 3,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/customers?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/customers?page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/customers?page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/customers?page=2",
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "path": "http:\/\/theam_crm.test\/api\/v1\/customers",
+        "per_page": "3",
+        "to": 3,
+        "total": 7
+    }
 }
 ```
 <div id="execution-results-GETapi-v1-customers" hidden>
@@ -119,6 +152,19 @@ print_r(json_decode((string) $body));
 </p>
 <p>
 <label id="auth-GETapi-v1-customers" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-v1-customers" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page</code></b>&nbsp;&nbsp;<small>int</small>     <i>optional</i> &nbsp;
+<input type="text" name="page" data-endpoint="GETapi-v1-customers" data-component="query"  hidden>
+<br>
+Page number to return.
+</p>
+<p>
+<b><code>perPage</code></b>&nbsp;&nbsp;<small>int</small>     <i>optional</i> &nbsp;
+<input type="text" name="perPage" data-endpoint="GETapi-v1-customers" data-component="query"  hidden>
+<br>
+Number of items to return in a page.
 </p>
 </form>
 
@@ -208,20 +254,20 @@ print_r(json_decode((string) $body));
 {
     "data": {
         "id": null,
-        "name": "Cydney",
-        "surname": "Kozey",
+        "name": "Carlos",
+        "surname": "Lemke",
         "photoUrl": null,
         "created_by": {
+            "id": 3,
+            "email": "example@example.com",
+            "username": "GithubUser",
+            "is_admin": false
+        },
+        "updated_by": {
             "id": 1,
             "email": "tagils@mail.ru",
             "username": "Fecony",
             "is_admin": true
-        },
-        "updated_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
-            "is_admin": false
         },
         "created_at": "",
         "updated_at": ""
@@ -280,7 +326,7 @@ Photo id.
 
 ```bash
 curl -X GET \
-    -G "[YOUR APP URL]/api/v1/customers/16" \
+    -G "[YOUR APP URL]/api/v1/customers/17" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -288,7 +334,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/customers/16"
+    "[YOUR APP URL]/api/v1/customers/17"
 );
 
 let headers = {
@@ -308,7 +354,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    '[YOUR APP URL]/api/v1/customers/16',
+    '[YOUR APP URL]/api/v1/customers/17',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',
@@ -334,20 +380,20 @@ print_r(json_decode((string) $body));
 {
     "data": {
         "id": null,
-        "name": "Vanessa",
-        "surname": "O'Keefe",
+        "name": "Marianne",
+        "surname": "Senger",
         "photoUrl": null,
         "created_by": {
-            "id": 3,
-            "email": "example@example.com",
-            "username": "GithubUser",
-            "is_admin": false
+            "id": 1,
+            "email": "tagils@mail.ru",
+            "username": "Fecony",
+            "is_admin": true
         },
         "updated_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
-            "is_admin": false
+            "id": 1,
+            "email": "tagils@mail.ru",
+            "username": "Fecony",
+            "is_admin": true
         },
         "created_at": "",
         "updated_at": ""
@@ -393,7 +439,7 @@ Customer id to show.
 
 ```bash
 curl -X PUT \
-    "[YOUR APP URL]/api/v1/customers/6" \
+    "[YOUR APP URL]/api/v1/customers/9" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -401,7 +447,7 @@ curl -X PUT \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/customers/6"
+    "[YOUR APP URL]/api/v1/customers/9"
 );
 
 let headers = {
@@ -421,7 +467,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    '[YOUR APP URL]/api/v1/customers/6',
+    '[YOUR APP URL]/api/v1/customers/9',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',
@@ -447,20 +493,20 @@ print_r(json_decode((string) $body));
 {
     "data": {
         "id": null,
-        "name": "Raheem",
-        "surname": "Mohr",
+        "name": "Else",
+        "surname": "Gislason",
         "photoUrl": null,
         "created_by": {
-            "id": 3,
-            "email": "example@example.com",
-            "username": "GithubUser",
+            "id": 2,
+            "email": "example@mail.ru",
+            "username": "Test user",
             "is_admin": false
         },
         "updated_by": {
-            "id": 1,
-            "email": "tagils@mail.ru",
-            "username": "Fecony",
-            "is_admin": true
+            "id": 2,
+            "email": "example@mail.ru",
+            "username": "Test user",
+            "is_admin": false
         },
         "created_at": "",
         "updated_at": ""
@@ -510,7 +556,7 @@ Customer id to update.
 
 ```bash
 curl -X DELETE \
-    "[YOUR APP URL]/api/v1/customers/2" \
+    "[YOUR APP URL]/api/v1/customers/18" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -518,7 +564,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/customers/2"
+    "[YOUR APP URL]/api/v1/customers/18"
 );
 
 let headers = {
@@ -538,7 +584,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    '[YOUR APP URL]/api/v1/customers/2',
+    '[YOUR APP URL]/api/v1/customers/18',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',

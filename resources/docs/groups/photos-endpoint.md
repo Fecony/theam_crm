@@ -16,7 +16,7 @@ curl -X POST \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpWti3Os" 
+    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpzJb0HE" 
 ```
 
 ```javascript
@@ -53,7 +53,7 @@ $response = $client->post(
         'multipart' => [
             [
                 'name' => 'photo',
-                'contents' => fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpWti3Os', 'r')
+                'contents' => fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpzJb0HE', 'r')
             ],
         ],
     ]
@@ -128,7 +128,7 @@ The image.
 
 ```bash
 curl -X DELETE \
-    "[YOUR APP URL]/api/v1/photos/13" \
+    "[YOUR APP URL]/api/v1/photos/1" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -136,7 +136,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/photos/13"
+    "[YOUR APP URL]/api/v1/photos/1"
 );
 
 let headers = {
@@ -156,7 +156,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    '[YOUR APP URL]/api/v1/photos/13',
+    '[YOUR APP URL]/api/v1/photos/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',

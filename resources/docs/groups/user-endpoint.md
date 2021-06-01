@@ -14,7 +14,7 @@ Endpoint used to manage CRM users.
 
 ```bash
 curl -X GET \
-    -G "[YOUR APP URL]/api/v1/users" \
+    -G "[YOUR APP URL]/api/v1/users?page=1&perPage=16" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -24,6 +24,13 @@ curl -X GET \
 const url = new URL(
     "[YOUR APP URL]/api/v1/users"
 );
+
+let params = {
+    "page": "1",
+    "perPage": "16",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer {TOKEN}",
@@ -48,6 +55,10 @@ $response = $client->get(
             'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
+        'query' => [
+            'page'=> '1',
+            'perPage'=> '16',
+        ],
     ]
 );
 $body = $response->getBody();
@@ -61,22 +72,46 @@ print_r(json_decode((string) $body));
 {
     "data": [
         {
-            "id": 100,
-            "email": "bernier.efren@example.net",
-            "username": "dock.powlowski",
-            "is_admin": null,
-            "created_at": "2021-06-01 15:12:55",
-            "updated_at": "2021-06-01 15:12:55"
-        },
-        {
-            "id": 101,
-            "email": "fbosco@example.org",
-            "username": "leonel.daniel",
-            "is_admin": null,
-            "created_at": "2021-06-01 15:12:55",
-            "updated_at": "2021-06-01 15:12:55"
+            "id": 1,
+            "email": "example@example.com",
+            "username": "GithubUser",
+            "is_admin": false,
+            "created_at": "2021-05-30 14:20:18",
+            "updated_at": "2021-05-30 14:20:49"
         }
-    ]
+    ],
+    "links": {
+        "first": "http:\/\/theam_crm.test\/api\/v1\/users?page=1",
+        "last": "http:\/\/theam_crm.test\/api\/v1\/users?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/users?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "path": "http:\/\/theam_crm.test\/api\/v1\/users",
+        "per_page": "3",
+        "to": 3,
+        "total": 3
+    }
 }
 ```
 <div id="execution-results-GETapi-v1-users" hidden>
@@ -97,6 +132,19 @@ print_r(json_decode((string) $body));
 </p>
 <p>
 <label id="auth-GETapi-v1-users" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-v1-users" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page</code></b>&nbsp;&nbsp;<small>int</small>     <i>optional</i> &nbsp;
+<input type="text" name="page" data-endpoint="GETapi-v1-users" data-component="query"  hidden>
+<br>
+Page number to return.
+</p>
+<p>
+<b><code>perPage</code></b>&nbsp;&nbsp;<small>int</small>     <i>optional</i> &nbsp;
+<input type="text" name="perPage" data-endpoint="GETapi-v1-users" data-component="query"  hidden>
+<br>
+Number of items to return in a page.
 </p>
 </form>
 
@@ -183,12 +231,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 102,
-        "email": "yblanda@example.org",
-        "username": "zokon",
+        "id": 398,
+        "email": "filiberto41@example.org",
+        "username": "jupton",
         "is_admin": null,
-        "created_at": "2021-06-01 15:12:55",
-        "updated_at": "2021-06-01 15:12:55"
+        "created_at": "2021-06-01 17:08:54",
+        "updated_at": "2021-06-01 17:08:54"
     }
 }
 ```
@@ -238,7 +286,7 @@ User username.
 
 ```bash
 curl -X GET \
-    -G "[YOUR APP URL]/api/v1/users/corporis" \
+    -G "[YOUR APP URL]/api/v1/users/nobis" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -246,7 +294,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/users/corporis"
+    "[YOUR APP URL]/api/v1/users/nobis"
 );
 
 let headers = {
@@ -266,7 +314,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    '[YOUR APP URL]/api/v1/users/corporis',
+    '[YOUR APP URL]/api/v1/users/nobis',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',
@@ -291,12 +339,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 103,
-        "email": "mcdermott.elmer@example.net",
-        "username": "aimee.rice",
+        "id": 399,
+        "email": "marks.maci@example.net",
+        "username": "dherzog",
         "is_admin": null,
-        "created_at": "2021-06-01 15:12:55",
-        "updated_at": "2021-06-01 15:12:55"
+        "created_at": "2021-06-01 17:08:54",
+        "updated_at": "2021-06-01 17:08:54"
     }
 }
 ```
@@ -345,7 +393,7 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X PUT \
-    "[YOUR APP URL]/api/v1/users/20" \
+    "[YOUR APP URL]/api/v1/users/12" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -353,7 +401,7 @@ curl -X PUT \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/users/20"
+    "[YOUR APP URL]/api/v1/users/12"
 );
 
 let headers = {
@@ -373,7 +421,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    '[YOUR APP URL]/api/v1/users/20',
+    '[YOUR APP URL]/api/v1/users/12',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',
@@ -398,12 +446,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 104,
-        "email": "lottie.auer@example.com",
-        "username": "rolfson.casey",
+        "id": 400,
+        "email": "zieme.destini@example.net",
+        "username": "lia68",
         "is_admin": null,
-        "created_at": "2021-06-01 15:12:55",
-        "updated_at": "2021-06-01 15:12:55"
+        "created_at": "2021-06-01 17:08:54",
+        "updated_at": "2021-06-01 17:08:54"
     }
 }
 ```
@@ -450,7 +498,7 @@ User id to update.
 
 ```bash
 curl -X DELETE \
-    "[YOUR APP URL]/api/v1/users/20" \
+    "[YOUR APP URL]/api/v1/users/2" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -458,7 +506,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/users/20"
+    "[YOUR APP URL]/api/v1/users/2"
 );
 
 let headers = {
@@ -478,7 +526,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    '[YOUR APP URL]/api/v1/users/20',
+    '[YOUR APP URL]/api/v1/users/2',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',
@@ -542,7 +590,7 @@ User id to remove.
 
 ```bash
 curl -X PATCH \
-    "[YOUR APP URL]/api/v1/users/17/toggle_admin" \
+    "[YOUR APP URL]/api/v1/users/5/toggle_admin" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -550,7 +598,7 @@ curl -X PATCH \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/users/17/toggle_admin"
+    "[YOUR APP URL]/api/v1/users/5/toggle_admin"
 );
 
 let headers = {
@@ -570,7 +618,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->patch(
-    '[YOUR APP URL]/api/v1/users/17/toggle_admin',
+    '[YOUR APP URL]/api/v1/users/5/toggle_admin',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',
@@ -595,12 +643,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 105,
-        "email": "nasir.dooley@example.net",
-        "username": "lavina79",
+        "id": 401,
+        "email": "bogan.ray@example.net",
+        "username": "haleigh.christiansen",
         "is_admin": null,
-        "created_at": "2021-06-01 15:12:55",
-        "updated_at": "2021-06-01 15:12:55"
+        "created_at": "2021-06-01 17:08:54",
+        "updated_at": "2021-06-01 17:08:54"
     }
 }
 ```

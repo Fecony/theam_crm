@@ -1,5 +1,7 @@
 <?php
 
+use App\Docs\Strategies\AddPaginationParameters;
+
 return [
 
     /*
@@ -321,6 +323,7 @@ INTRO
         ],
         'queryParameters' => [
             \Knuckles\Scribe\Extracting\Strategies\QueryParameters\GetFromQueryParamTag::class,
+            AddPaginationParameters::class,
         ],
         'headers' => [
             \Knuckles\Scribe\Extracting\Strategies\Headers\GetFromRouteRules::class,
