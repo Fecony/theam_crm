@@ -10,14 +10,14 @@
 
 ```bash
 curl -X GET \
-    -G "http://theam_crm.test/api/v1/auth/github" \
+    -G "[YOUR APP URL]/api/v1/auth/github" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/auth/github"
+    "[YOUR APP URL]/api/v1/auth/github"
 );
 
 let headers = {
@@ -36,7 +36,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://theam_crm.test/api/v1/auth/github',
+    '[YOUR APP URL]/api/v1/auth/github',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -70,6 +70,85 @@ print_r(json_decode((string) $body));
 <p>
 <small class="badge badge-green">GET</small>
  <b><code>api/v1/auth/github</code></b>
+</p>
+</form>
+
+
+## api/v1/auth/github/callback
+
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "[YOUR APP URL]/api/v1/auth/github/callback" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "[YOUR APP URL]/api/v1/auth/github/callback"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    '[YOUR APP URL]/api/v1/auth/github/callback',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "user": {
+        "id": 1,
+        "email": "example@example.com",
+        "username": "Github username",
+        "is_admin": false
+    },
+    "token": "BEARER TOKEN"
+}
+```
+<div id="execution-results-GETapi-v1-auth-github-callback" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-v1-auth-github-callback"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-auth-github-callback"></code></pre>
+</div>
+<div id="execution-error-GETapi-v1-auth-github-callback" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-auth-github-callback"></code></pre>
+</div>
+<form id="form-GETapi-v1-auth-github-callback" data-method="GET" data-path="api/v1/auth/github/callback" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-auth-github-callback', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/v1/auth/github/callback</code></b>
 </p>
 </form>
 

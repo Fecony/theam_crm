@@ -12,19 +12,19 @@ Used to "logout" user.
 
 ```bash
 curl -X DELETE \
-    "http://theam_crm.test/api/v1/logout" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    "[YOUR APP URL]/api/v1/logout" \
+    -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/logout"
+    "[YOUR APP URL]/api/v1/logout"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -40,10 +40,10 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://theam_crm.test/api/v1/logout',
+    '[YOUR APP URL]/api/v1/logout',
     [
         'headers' => [
-            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
     ]
@@ -66,7 +66,7 @@ print_r(json_decode((string) $body));
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-DELETEapi-v1-logout"></code></pre>
 </div>
-<form id="form-DELETEapi-v1-logout" data-method="DELETE" data-path="api/v1/logout" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-logout', this);">
+<form id="form-DELETEapi-v1-logout" data-method="DELETE" data-path="api/v1/logout" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-logout', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
     </h3>

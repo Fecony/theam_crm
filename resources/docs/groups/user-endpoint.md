@@ -1,6 +1,7 @@
 # User endpoint
 
 Endpoint used to manage CRM users.
+
 <aside class="warning">Only admin users can access this endpoint</aside>
 
 ## api/v1/users
@@ -13,19 +14,19 @@ Endpoint used to manage CRM users.
 
 ```bash
 curl -X GET \
-    -G "http://theam_crm.test/api/v1/users" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -G "[YOUR APP URL]/api/v1/users" \
+    -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/users"
+    "[YOUR APP URL]/api/v1/users"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -41,10 +42,10 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://theam_crm.test/api/v1/users',
+    '[YOUR APP URL]/api/v1/users',
     [
         'headers' => [
-            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
     ]
@@ -60,20 +61,20 @@ print_r(json_decode((string) $body));
 {
     "data": [
         {
-            "id": 22,
-            "email": "heaven30@example.com",
-            "username": "mwolf",
+            "id": 100,
+            "email": "bernier.efren@example.net",
+            "username": "dock.powlowski",
             "is_admin": null,
-            "created_at": "2021-05-30 17:41:42",
-            "updated_at": "2021-05-30 17:41:42"
+            "created_at": "2021-06-01 15:12:55",
+            "updated_at": "2021-06-01 15:12:55"
         },
         {
-            "id": 23,
-            "email": "hdickens@example.net",
-            "username": "cmcdermott",
+            "id": 101,
+            "email": "fbosco@example.org",
+            "username": "leonel.daniel",
             "is_admin": null,
-            "created_at": "2021-05-30 17:41:42",
-            "updated_at": "2021-05-30 17:41:42"
+            "created_at": "2021-06-01 15:12:55",
+            "updated_at": "2021-06-01 15:12:55"
         }
     ]
 }
@@ -86,7 +87,7 @@ print_r(json_decode((string) $body));
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-v1-users"></code></pre>
 </div>
-<form id="form-GETapi-v1-users" data-method="GET" data-path="api/v1/users" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users', this);">
+<form id="form-GETapi-v1-users" data-method="GET" data-path="api/v1/users" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
     </h3>
@@ -110,8 +111,8 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X POST \
-    "http://theam_crm.test/api/v1/users" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    "[YOUR APP URL]/api/v1/users" \
+    -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"email":"email@example.com","username":"Example github username"}'
@@ -120,11 +121,11 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/users"
+    "[YOUR APP URL]/api/v1/users"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -145,10 +146,10 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://theam_crm.test/api/v1/users',
+    '[YOUR APP URL]/api/v1/users',
     [
         'headers' => [
-            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
         'json' => [
@@ -182,12 +183,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 24,
-        "email": "davion43@example.com",
-        "username": "braden43",
+        "id": 102,
+        "email": "yblanda@example.org",
+        "username": "zokon",
         "is_admin": null,
-        "created_at": "2021-05-30 17:41:42",
-        "updated_at": "2021-05-30 17:41:42"
+        "created_at": "2021-06-01 15:12:55",
+        "updated_at": "2021-06-01 15:12:55"
     }
 }
 ```
@@ -199,7 +200,7 @@ print_r(json_decode((string) $body));
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-v1-users"></code></pre>
 </div>
-<form id="form-POSTapi-v1-users" data-method="POST" data-path="api/v1/users" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-users', this);">
+<form id="form-POSTapi-v1-users" data-method="POST" data-path="api/v1/users" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-users', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
     </h3>
@@ -237,19 +238,19 @@ User username.
 
 ```bash
 curl -X GET \
-    -G "http://theam_crm.test/api/v1/users/id" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -G "[YOUR APP URL]/api/v1/users/corporis" \
+    -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/users/id"
+    "[YOUR APP URL]/api/v1/users/corporis"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -265,10 +266,10 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://theam_crm.test/api/v1/users/id',
+    '[YOUR APP URL]/api/v1/users/corporis',
     [
         'headers' => [
-            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
     ]
@@ -290,12 +291,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 25,
-        "email": "kunze.burley@example.net",
-        "username": "zpurdy",
+        "id": 103,
+        "email": "mcdermott.elmer@example.net",
+        "username": "aimee.rice",
         "is_admin": null,
-        "created_at": "2021-05-30 17:41:42",
-        "updated_at": "2021-05-30 17:41:42"
+        "created_at": "2021-06-01 15:12:55",
+        "updated_at": "2021-06-01 15:12:55"
     }
 }
 ```
@@ -307,7 +308,7 @@ print_r(json_decode((string) $body));
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-v1-users--user-"></code></pre>
 </div>
-<form id="form-GETapi-v1-users--user-" data-method="GET" data-path="api/v1/users/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--user-', this);">
+<form id="form-GETapi-v1-users--user-" data-method="GET" data-path="api/v1/users/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--user-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
     </h3>
@@ -344,19 +345,19 @@ print_r(json_decode((string) $body));
 
 ```bash
 curl -X PUT \
-    "http://theam_crm.test/api/v1/users/4" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    "[YOUR APP URL]/api/v1/users/20" \
+    -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/users/4"
+    "[YOUR APP URL]/api/v1/users/20"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -372,10 +373,10 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    'http://theam_crm.test/api/v1/users/4',
+    '[YOUR APP URL]/api/v1/users/20',
     [
         'headers' => [
-            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
     ]
@@ -397,12 +398,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 26,
-        "email": "kovacek.shaun@example.com",
-        "username": "drake73",
+        "id": 104,
+        "email": "lottie.auer@example.com",
+        "username": "rolfson.casey",
         "is_admin": null,
-        "created_at": "2021-05-30 17:41:42",
-        "updated_at": "2021-05-30 17:41:42"
+        "created_at": "2021-06-01 15:12:55",
+        "updated_at": "2021-06-01 15:12:55"
     }
 }
 ```
@@ -414,7 +415,7 @@ print_r(json_decode((string) $body));
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-PUTapi-v1-users--user-"></code></pre>
 </div>
-<form id="form-PUTapi-v1-users--user-" data-method="PUT" data-path="api/v1/users/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-users--user-', this);">
+<form id="form-PUTapi-v1-users--user-" data-method="PUT" data-path="api/v1/users/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-users--user-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
     </h3>
@@ -449,19 +450,19 @@ User id to update.
 
 ```bash
 curl -X DELETE \
-    "http://theam_crm.test/api/v1/users/4" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    "[YOUR APP URL]/api/v1/users/20" \
+    -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/users/4"
+    "[YOUR APP URL]/api/v1/users/20"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -477,10 +478,10 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://theam_crm.test/api/v1/users/4',
+    '[YOUR APP URL]/api/v1/users/20',
     [
         'headers' => [
-            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
     ]
@@ -510,7 +511,7 @@ print_r(json_decode((string) $body));
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-DELETEapi-v1-users--user-"></code></pre>
 </div>
-<form id="form-DELETEapi-v1-users--user-" data-method="DELETE" data-path="api/v1/users/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-users--user-', this);">
+<form id="form-DELETEapi-v1-users--user-" data-method="DELETE" data-path="api/v1/users/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-users--user-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
     </h3>
@@ -541,19 +542,19 @@ User id to remove.
 
 ```bash
 curl -X PATCH \
-    "http://theam_crm.test/api/v1/users/18/toggle_admin" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    "[YOUR APP URL]/api/v1/users/17/toggle_admin" \
+    -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://theam_crm.test/api/v1/users/18/toggle_admin"
+    "[YOUR APP URL]/api/v1/users/17/toggle_admin"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -569,10 +570,10 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->patch(
-    'http://theam_crm.test/api/v1/users/18/toggle_admin',
+    '[YOUR APP URL]/api/v1/users/17/toggle_admin',
     [
         'headers' => [
-            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' => 'Bearer {TOKEN}',
             'Accept' => 'application/json',
         ],
     ]
@@ -594,12 +595,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 27,
-        "email": "senger.reginald@example.net",
-        "username": "caleigh.friesen",
+        "id": 105,
+        "email": "nasir.dooley@example.net",
+        "username": "lavina79",
         "is_admin": null,
-        "created_at": "2021-05-30 17:41:42",
-        "updated_at": "2021-05-30 17:41:42"
+        "created_at": "2021-06-01 15:12:55",
+        "updated_at": "2021-06-01 15:12:55"
     }
 }
 ```
@@ -611,7 +612,7 @@ print_r(json_decode((string) $body));
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-PATCHapi-v1-users--user--toggle_admin"></code></pre>
 </div>
-<form id="form-PATCHapi-v1-users--user--toggle_admin" data-method="PATCH" data-path="api/v1/users/{user}/toggle_admin" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PATCHapi-v1-users--user--toggle_admin', this);">
+<form id="form-PATCHapi-v1-users--user--toggle_admin" data-method="PATCH" data-path="api/v1/users/{user}/toggle_admin" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PATCHapi-v1-users--user--toggle_admin', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
     </h3>
