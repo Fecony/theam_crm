@@ -4,7 +4,7 @@ Endpoint used to manage CRM users.
 
 <aside class="warning">Only admin users can access this endpoint</aside>
 
-## api/v1/users
+## Get list of users
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -149,7 +149,7 @@ Number of items to return in a page.
 </form>
 
 
-## api/v1/users
+## Create user
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -231,12 +231,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 398,
-        "email": "filiberto41@example.org",
-        "username": "jupton",
+        "id": 422,
+        "email": "rkoepp@example.org",
+        "username": "schmitt.alvis",
         "is_admin": null,
-        "created_at": "2021-06-01 17:08:54",
-        "updated_at": "2021-06-01 17:08:54"
+        "created_at": "2021-06-01 17:28:15",
+        "updated_at": "2021-06-01 17:28:15"
     }
 }
 ```
@@ -276,7 +276,7 @@ User username.
 </form>
 
 
-## api/v1/users/{user}
+## Get user by id
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -286,7 +286,7 @@ User username.
 
 ```bash
 curl -X GET \
-    -G "[YOUR APP URL]/api/v1/users/nobis" \
+    -G "[YOUR APP URL]/api/v1/users/12" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -294,7 +294,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/users/nobis"
+    "[YOUR APP URL]/api/v1/users/12"
 );
 
 let headers = {
@@ -314,113 +314,6 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    '[YOUR APP URL]/api/v1/users/nobis',
-    [
-        'headers' => [
-            'Authorization' => 'Bearer {TOKEN}',
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-
-> Example response (404, not found):
-
-```json
-{
-    "error": "Resource not found"
-}
-```
-> Example response (200):
-
-```json
-{
-    "data": {
-        "id": 399,
-        "email": "marks.maci@example.net",
-        "username": "dherzog",
-        "is_admin": null,
-        "created_at": "2021-06-01 17:08:54",
-        "updated_at": "2021-06-01 17:08:54"
-    }
-}
-```
-<div id="execution-results-GETapi-v1-users--user-" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETapi-v1-users--user-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-users--user-"></code></pre>
-</div>
-<div id="execution-error-GETapi-v1-users--user-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-users--user-"></code></pre>
-</div>
-<form id="form-GETapi-v1-users--user-" data-method="GET" data-path="api/v1/users/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--user-', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-    </h3>
-<p>
-<small class="badge badge-green">GET</small>
- <b><code>api/v1/users/{user}</code></b>
-</p>
-<p>
-<label id="auth-GETapi-v1-users--user-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-v1-users--user-" data-component="header"></label>
-</p>
-<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-<p>
-<b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="user" data-endpoint="GETapi-v1-users--user-" data-component="url" required  hidden>
-<br>
-
-</p>
-<p>
-<b><code>int</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="int" data-endpoint="GETapi-v1-users--user-" data-component="url" required  hidden>
-<br>
-Гыук id to show.
-</p>
-</form>
-
-
-## api/v1/users/{user}
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "[YOUR APP URL]/api/v1/users/12" \
-    -H "Authorization: Bearer {TOKEN}" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "[YOUR APP URL]/api/v1/users/12"
-);
-
-let headers = {
-    "Authorization": "Bearer {TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "PUT",
-    headers,
-}).then(response => response.json());
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->put(
     '[YOUR APP URL]/api/v1/users/12',
     [
         'headers' => [
@@ -446,12 +339,113 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 400,
-        "email": "zieme.destini@example.net",
-        "username": "lia68",
+        "id": 423,
+        "email": "frederique89@example.net",
+        "username": "cecelia.harris",
         "is_admin": null,
-        "created_at": "2021-06-01 17:08:54",
-        "updated_at": "2021-06-01 17:08:54"
+        "created_at": "2021-06-01 17:28:15",
+        "updated_at": "2021-06-01 17:28:15"
+    }
+}
+```
+<div id="execution-results-GETapi-v1-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-v1-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users--user-"></code></pre>
+</div>
+<div id="execution-error-GETapi-v1-users--user-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-users--user-"></code></pre>
+</div>
+<form id="form-GETapi-v1-users--user-" data-method="GET" data-path="api/v1/users/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--user-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/v1/users/{user}</code></b>
+</p>
+<p>
+<label id="auth-GETapi-v1-users--user-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-v1-users--user-" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>user</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="user" data-endpoint="GETapi-v1-users--user-" data-component="url" required  hidden>
+<br>
+User id to show.
+</p>
+</form>
+
+
+## Update user
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "[YOUR APP URL]/api/v1/users/7" \
+    -H "Authorization: Bearer {TOKEN}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "[YOUR APP URL]/api/v1/users/7"
+);
+
+let headers = {
+    "Authorization": "Bearer {TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->put(
+    '[YOUR APP URL]/api/v1/users/7',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {TOKEN}',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (404, not found):
+
+```json
+{
+    "error": "Resource not found"
+}
+```
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 424,
+        "email": "romaine.trantow@example.org",
+        "username": "heller.river",
+        "is_admin": null,
+        "created_at": "2021-06-01 17:28:15",
+        "updated_at": "2021-06-01 17:28:15"
     }
 }
 ```
@@ -488,7 +482,7 @@ User id to update.
 </form>
 
 
-## api/v1/users/{user}
+## Delete user
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -498,7 +492,7 @@ User id to update.
 
 ```bash
 curl -X DELETE \
-    "[YOUR APP URL]/api/v1/users/2" \
+    "[YOUR APP URL]/api/v1/users/17" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -506,7 +500,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/users/2"
+    "[YOUR APP URL]/api/v1/users/17"
 );
 
 let headers = {
@@ -526,7 +520,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    '[YOUR APP URL]/api/v1/users/2',
+    '[YOUR APP URL]/api/v1/users/17',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',
@@ -580,7 +574,7 @@ User id to remove.
 </form>
 
 
-## api/v1/users/{user}/toggle_admin
+## Toggle admin state
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -590,7 +584,7 @@ User id to remove.
 
 ```bash
 curl -X PATCH \
-    "[YOUR APP URL]/api/v1/users/5/toggle_admin" \
+    "[YOUR APP URL]/api/v1/users/12/toggle_admin" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -598,7 +592,7 @@ curl -X PATCH \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/users/5/toggle_admin"
+    "[YOUR APP URL]/api/v1/users/12/toggle_admin"
 );
 
 let headers = {
@@ -618,7 +612,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->patch(
-    '[YOUR APP URL]/api/v1/users/5/toggle_admin',
+    '[YOUR APP URL]/api/v1/users/12/toggle_admin',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',
@@ -643,12 +637,12 @@ print_r(json_decode((string) $body));
 ```json
 {
     "data": {
-        "id": 401,
-        "email": "bogan.ray@example.net",
-        "username": "haleigh.christiansen",
+        "id": 425,
+        "email": "grant36@example.org",
+        "username": "asia35",
         "is_admin": null,
-        "created_at": "2021-06-01 17:08:54",
-        "updated_at": "2021-06-01 17:08:54"
+        "created_at": "2021-06-01 17:28:15",
+        "updated_at": "2021-06-01 17:28:15"
     }
 }
 ```

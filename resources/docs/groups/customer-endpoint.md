@@ -2,7 +2,7 @@
 
 Endpoint used to manage CRM customers.
 
-## api/v1/customers
+## Get list of customers
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -169,7 +169,7 @@ Number of items to return in a page.
 </form>
 
 
-## api/v1/customers
+## Create new customer
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -254,8 +254,8 @@ print_r(json_decode((string) $body));
 {
     "data": {
         "id": null,
-        "name": "Carlos",
-        "surname": "Lemke",
+        "name": "Ofelia",
+        "surname": "Hammes",
         "photoUrl": null,
         "created_by": {
             "id": 3,
@@ -316,7 +316,7 @@ Photo id.
 </form>
 
 
-## api/v1/customers/{customer}
+## Get customer by id
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -380,14 +380,14 @@ print_r(json_decode((string) $body));
 {
     "data": {
         "id": null,
-        "name": "Marianne",
-        "surname": "Senger",
+        "name": "Cristopher",
+        "surname": "Hansen",
         "photoUrl": null,
         "created_by": {
-            "id": 1,
-            "email": "tagils@mail.ru",
-            "username": "Fecony",
-            "is_admin": true
+            "id": 2,
+            "email": "example@mail.ru",
+            "username": "Test user",
+            "is_admin": false
         },
         "updated_by": {
             "id": 1,
@@ -429,7 +429,7 @@ Customer id to show.
 </form>
 
 
-## api/v1/customers/{customer}
+## Update customer
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -493,19 +493,19 @@ print_r(json_decode((string) $body));
 {
     "data": {
         "id": null,
-        "name": "Else",
-        "surname": "Gislason",
+        "name": "Hosea",
+        "surname": "Howell",
         "photoUrl": null,
         "created_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
+            "id": 3,
+            "email": "example@example.com",
+            "username": "GithubUser",
             "is_admin": false
         },
         "updated_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
+            "id": 3,
+            "email": "example@example.com",
+            "username": "GithubUser",
             "is_admin": false
         },
         "created_at": "",
@@ -546,7 +546,7 @@ Customer id to update.
 </form>
 
 
-## api/v1/customers/{customer}
+## Delete customer
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -556,7 +556,7 @@ Customer id to update.
 
 ```bash
 curl -X DELETE \
-    "[YOUR APP URL]/api/v1/customers/18" \
+    "[YOUR APP URL]/api/v1/customers/19" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -564,7 +564,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "[YOUR APP URL]/api/v1/customers/18"
+    "[YOUR APP URL]/api/v1/customers/19"
 );
 
 let headers = {
@@ -584,7 +584,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    '[YOUR APP URL]/api/v1/customers/18',
+    '[YOUR APP URL]/api/v1/customers/19',
     [
         'headers' => [
             'Authorization' => 'Bearer {TOKEN}',

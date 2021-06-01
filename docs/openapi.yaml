@@ -9,7 +9,7 @@ servers:
 paths:
     /api/v1/customers:
         get:
-            summary: ''
+            summary: 'Get list of customers'
             description: ''
             parameters:
                 -
@@ -71,7 +71,7 @@ paths:
             tags:
                 - 'Customer endpoint'
         post:
-            summary: ''
+            summary: 'Create new customer'
             description: ''
             parameters:
                 -
@@ -115,9 +115,9 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    data: { id: null, name: Carlos, surname: Lemke, photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' }
+                                    data: { id: null, name: Ofelia, surname: Hammes, photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' }
                                 properties:
-                                    data: { type: object, example: { id: null, name: Carlos, surname: Lemke, photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' } }
+                                    data: { type: object, example: { id: null, name: Ofelia, surname: Hammes, photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' } }
             tags:
                 - 'Customer endpoint'
             requestBody:
@@ -144,7 +144,7 @@ paths:
                                 - surname
     '/api/v1/customers/{customer}':
         get:
-            summary: ''
+            summary: 'Get customer by id'
             description: ''
             parameters:
                 -
@@ -186,13 +186,13 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    data: { id: null, name: Marianne, surname: Senger, photoUrl: null, created_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' }
+                                    data: { id: null, name: Cristopher, surname: Hansen, photoUrl: null, created_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' }
                                 properties:
-                                    data: { type: object, example: { id: null, name: Marianne, surname: Senger, photoUrl: null, created_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' } }
+                                    data: { type: object, example: { id: null, name: Cristopher, surname: Hansen, photoUrl: null, created_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, updated_by: { id: 1, email: tagils@mail.ru, username: Fecony, is_admin: true }, created_at: '', updated_at: '' } }
             tags:
                 - 'Customer endpoint'
         put:
-            summary: ''
+            summary: 'Update customer'
             description: ''
             parameters:
                 -
@@ -234,13 +234,13 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    data: { id: null, name: Else, surname: Gislason, photoUrl: null, created_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' }
+                                    data: { id: null, name: Hosea, surname: Howell, photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, created_at: '', updated_at: '' }
                                 properties:
-                                    data: { type: object, example: { id: null, name: Else, surname: Gislason, photoUrl: null, created_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, updated_by: { id: 2, email: example@mail.ru, username: 'Test user', is_admin: false }, created_at: '', updated_at: '' } }
+                                    data: { type: object, example: { id: null, name: Hosea, surname: Howell, photoUrl: null, created_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, updated_by: { id: 3, email: example@example.com, username: GithubUser, is_admin: false }, created_at: '', updated_at: '' } }
             tags:
                 - 'Customer endpoint'
         delete:
-            summary: ''
+            summary: 'Delete customer'
             description: ''
             parameters:
                 -
@@ -358,8 +358,8 @@ paths:
             security: []
     /api/v1/logout:
         delete:
-            summary: ''
-            description: ''
+            summary: 'Logout user'
+            description: 'This endpoint will remove current user personal token'
             parameters:
                 -
                     in: header
@@ -389,7 +389,7 @@ paths:
                 - 'Logout endpoint'
     /api/v1/photos:
         post:
-            summary: ''
+            summary: 'Upload photo'
             description: ''
             parameters:
                 -
@@ -445,7 +445,7 @@ paths:
                                 - photo
     '/api/v1/photos/{photo}':
         delete:
-            summary: ''
+            summary: 'Delete photo'
             description: ''
             parameters:
                 -
@@ -489,13 +489,13 @@ paths:
                 in: path
                 name: photo
                 description: 'Photo id to remove.'
-                example: 1
+                example: 13
                 required: true
                 schema:
                     type: integer
     /api/v1/users:
         get:
-            summary: ''
+            summary: 'Get list of users'
             description: ''
             parameters:
                 -
@@ -557,7 +557,7 @@ paths:
             tags:
                 - 'User endpoint'
         post:
-            summary: ''
+            summary: 'Create user'
             description: ''
             parameters:
                 -
@@ -601,9 +601,9 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    data: { id: 398, email: filiberto41@example.org, username: jupton, is_admin: null, created_at: '2021-06-01 17:08:54', updated_at: '2021-06-01 17:08:54' }
+                                    data: { id: 422, email: rkoepp@example.org, username: schmitt.alvis, is_admin: null, created_at: '2021-06-01 17:28:15', updated_at: '2021-06-01 17:28:15' }
                                 properties:
-                                    data: { type: object, example: { id: 398, email: filiberto41@example.org, username: jupton, is_admin: null, created_at: '2021-06-01 17:08:54', updated_at: '2021-06-01 17:08:54' } }
+                                    data: { type: object, example: { id: 422, email: rkoepp@example.org, username: schmitt.alvis, is_admin: null, created_at: '2021-06-01 17:28:15', updated_at: '2021-06-01 17:28:15' } }
             tags:
                 - 'User endpoint'
             requestBody:
@@ -626,7 +626,7 @@ paths:
                                 - username
     '/api/v1/users/{user}':
         get:
-            summary: ''
+            summary: 'Get user by id'
             description: ''
             parameters:
                 -
@@ -668,13 +668,13 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    data: { id: 399, email: marks.maci@example.net, username: dherzog, is_admin: null, created_at: '2021-06-01 17:08:54', updated_at: '2021-06-01 17:08:54' }
+                                    data: { id: 423, email: frederique89@example.net, username: cecelia.harris, is_admin: null, created_at: '2021-06-01 17:28:15', updated_at: '2021-06-01 17:28:15' }
                                 properties:
-                                    data: { type: object, example: { id: 399, email: marks.maci@example.net, username: dherzog, is_admin: null, created_at: '2021-06-01 17:08:54', updated_at: '2021-06-01 17:08:54' } }
+                                    data: { type: object, example: { id: 423, email: frederique89@example.net, username: cecelia.harris, is_admin: null, created_at: '2021-06-01 17:28:15', updated_at: '2021-06-01 17:28:15' } }
             tags:
                 - 'User endpoint'
         put:
-            summary: ''
+            summary: 'Update user'
             description: ''
             parameters:
                 -
@@ -716,13 +716,13 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    data: { id: 400, email: zieme.destini@example.net, username: lia68, is_admin: null, created_at: '2021-06-01 17:08:54', updated_at: '2021-06-01 17:08:54' }
+                                    data: { id: 424, email: romaine.trantow@example.org, username: heller.river, is_admin: null, created_at: '2021-06-01 17:28:15', updated_at: '2021-06-01 17:28:15' }
                                 properties:
-                                    data: { type: object, example: { id: 400, email: zieme.destini@example.net, username: lia68, is_admin: null, created_at: '2021-06-01 17:08:54', updated_at: '2021-06-01 17:08:54' } }
+                                    data: { type: object, example: { id: 424, email: romaine.trantow@example.org, username: heller.river, is_admin: null, created_at: '2021-06-01 17:28:15', updated_at: '2021-06-01 17:28:15' } }
             tags:
                 - 'User endpoint'
         delete:
-            summary: ''
+            summary: 'Delete user'
             description: ''
             parameters:
                 -
@@ -765,22 +765,14 @@ paths:
             -
                 in: path
                 name: user
-                description: ''
-                example: nobis
+                description: 'User id to show.'
+                example: 12
                 required: true
                 schema:
-                    type: string
-            -
-                in: path
-                name: int
-                description: 'Гыук id to show.'
-                example: sed
-                required: true
-                schema:
-                    type: string
+                    type: integer
     '/api/v1/users/{user}/toggle_admin':
         patch:
-            summary: ''
+            summary: 'Toggle admin state'
             description: ''
             parameters:
                 -
@@ -822,9 +814,9 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    data: { id: 401, email: bogan.ray@example.net, username: haleigh.christiansen, is_admin: null, created_at: '2021-06-01 17:08:54', updated_at: '2021-06-01 17:08:54' }
+                                    data: { id: 425, email: grant36@example.org, username: asia35, is_admin: null, created_at: '2021-06-01 17:28:15', updated_at: '2021-06-01 17:28:15' }
                                 properties:
-                                    data: { type: object, example: { id: 401, email: bogan.ray@example.net, username: haleigh.christiansen, is_admin: null, created_at: '2021-06-01 17:08:54', updated_at: '2021-06-01 17:08:54' } }
+                                    data: { type: object, example: { id: 425, email: grant36@example.org, username: asia35, is_admin: null, created_at: '2021-06-01 17:28:15', updated_at: '2021-06-01 17:28:15' } }
             tags:
                 - 'User endpoint'
         parameters:
@@ -832,7 +824,7 @@ paths:
                 in: path
                 name: user
                 description: 'User id to toggle admin role.'
-                example: 5
+                example: 12
                 required: true
                 schema:
                     type: integer
