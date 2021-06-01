@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "THEAM CRM API",
-        "_postman_id": "8a02dc56-4b16-4224-961c-0643c0da72a1",
+        "_postman_id": "c118d67b-0352-42ed-b115-428d389b3c36",
         "description": "Small API for CRM system to manage customers",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -26,8 +26,21 @@
                             "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/v1\/customers",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers"
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number to return.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "16",
+                                    "description": "Number of items to return in a page.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers?page=1&perPage=16"
                         },
                         "method": "GET",
                         "header": [
@@ -51,8 +64,21 @@
                                     "protocol": "http",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/v1\/customers",
-                                    "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers"
+                                    "query": [
+                                        {
+                                            "key": "page",
+                                            "value": "1",
+                                            "description": "Page number to return.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "perPage",
+                                            "value": "16",
+                                            "description": "Number of items to return in a page.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/customers?page=1&perPage=16"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -70,7 +96,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": [\n        {\n            \"id\": null,\n            \"name\": \"Sabrina\",\n            \"surname\": \"Durgan\",\n            \"photoUrl\": null,\n            \"created_by\": {\n                \"id\": 1,\n                \"email\": \"tagils@mail.ru\",\n                \"username\": \"Fecony\",\n                \"is_admin\": true\n            },\n            \"updated_by\": {\n                \"id\": 2,\n                \"email\": \"example@mail.ru\",\n                \"username\": \"Test user\",\n                \"is_admin\": false\n            },\n            \"created_at\": \"\",\n            \"updated_at\": \"\"\n        },\n        {\n            \"id\": null,\n            \"name\": \"Queenie\",\n            \"surname\": \"Brekke\",\n            \"photoUrl\": null,\n            \"created_by\": {\n                \"id\": 1,\n                \"email\": \"tagils@mail.ru\",\n                \"username\": \"Fecony\",\n                \"is_admin\": true\n            },\n            \"updated_by\": {\n                \"id\": 2,\n                \"email\": \"example@mail.ru\",\n                \"username\": \"Test user\",\n                \"is_admin\": false\n            },\n            \"created_at\": \"\",\n            \"updated_at\": \"\"\n        }\n    ]\n}"
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"name 1\",\n            \"surname\": \"surname\",\n            \"photoUrl\": null,\n            \"created_by\": {\n                \"id\": 1,\n                \"email\": \"tagils@mail.ru\",\n                \"username\": \"Fecony\",\n                \"is_admin\": true\n            },\n            \"updated_by\": {\n                \"id\": 1,\n                \"email\": \"tagils@mail.ru\",\n                \"username\": \"Fecony\",\n                \"is_admin\": true\n            },\n            \"created_at\": \"2021-05-30 11:11:06\",\n            \"updated_at\": \"2021-05-30 11:25:12\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/customers?page=1\",\n        \"last\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/customers?page=3\",\n        \"prev\": null,\n        \"next\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/customers?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 3,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/customers?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/customers?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/customers?page=3\",\n                \"label\": \"3\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/customers?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/customers\",\n        \"per_page\": \"3\",\n        \"to\": 3,\n        \"total\": 7\n    }\n}"
                         }
                     ]
                 },
@@ -162,7 +188,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Cydney\",\n        \"surname\": \"Kozey\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"updated_by\": {\n            \"id\": 2,\n            \"email\": \"example@mail.ru\",\n            \"username\": \"Test user\",\n            \"is_admin\": false\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Carlos\",\n        \"surname\": \"Lemke\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 3,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
                         }
                     ]
                 },
@@ -179,7 +205,7 @@
                                 {
                                     "id": "customer",
                                     "key": "customer",
-                                    "value": "16",
+                                    "value": "17",
                                     "description": "Customer id to show."
                                 }
                             ]
@@ -212,7 +238,7 @@
                                         {
                                             "id": "customer",
                                             "key": "customer",
-                                            "value": "16",
+                                            "value": "17",
                                             "description": "Customer id to show."
                                         }
                                     ]
@@ -248,7 +274,7 @@
                                         {
                                             "id": "customer",
                                             "key": "customer",
-                                            "value": "16",
+                                            "value": "17",
                                             "description": "Customer id to show."
                                         }
                                     ]
@@ -269,7 +295,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Vanessa\",\n        \"surname\": \"O'Keefe\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 3,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 2,\n            \"email\": \"example@mail.ru\",\n            \"username\": \"Test user\",\n            \"is_admin\": false\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Marianne\",\n        \"surname\": \"Senger\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"updated_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
                         }
                     ]
                 },
@@ -286,7 +312,7 @@
                                 {
                                     "id": "customer",
                                     "key": "customer",
-                                    "value": "6",
+                                    "value": "9",
                                     "description": "Customer id to update."
                                 }
                             ]
@@ -319,7 +345,7 @@
                                         {
                                             "id": "customer",
                                             "key": "customer",
-                                            "value": "6",
+                                            "value": "9",
                                             "description": "Customer id to update."
                                         }
                                     ]
@@ -355,7 +381,7 @@
                                         {
                                             "id": "customer",
                                             "key": "customer",
-                                            "value": "6",
+                                            "value": "9",
                                             "description": "Customer id to update."
                                         }
                                     ]
@@ -376,7 +402,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Raheem\",\n        \"surname\": \"Mohr\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 3,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 1,\n            \"email\": \"tagils@mail.ru\",\n            \"username\": \"Fecony\",\n            \"is_admin\": true\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": null,\n        \"name\": \"Else\",\n        \"surname\": \"Gislason\",\n        \"photoUrl\": null,\n        \"created_by\": {\n            \"id\": 2,\n            \"email\": \"example@mail.ru\",\n            \"username\": \"Test user\",\n            \"is_admin\": false\n        },\n        \"updated_by\": {\n            \"id\": 2,\n            \"email\": \"example@mail.ru\",\n            \"username\": \"Test user\",\n            \"is_admin\": false\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    }\n}"
                         }
                     ]
                 },
@@ -393,7 +419,7 @@
                                 {
                                     "id": "customer",
                                     "key": "customer",
-                                    "value": "2",
+                                    "value": "18",
                                     "description": "Customer id to remove."
                                 }
                             ]
@@ -426,7 +452,7 @@
                                         {
                                             "id": "customer",
                                             "key": "customer",
-                                            "value": "2",
+                                            "value": "18",
                                             "description": "Customer id to remove."
                                         }
                                     ]
@@ -462,7 +488,7 @@
                                         {
                                             "id": "customer",
                                             "key": "customer",
-                                            "value": "2",
+                                            "value": "18",
                                             "description": "Customer id to remove."
                                         }
                                     ]
@@ -805,7 +831,7 @@
                                 {
                                     "id": "photo",
                                     "key": "photo",
-                                    "value": "13",
+                                    "value": "1",
                                     "description": "Photo id to remove."
                                 }
                             ]
@@ -838,7 +864,7 @@
                                         {
                                             "id": "photo",
                                             "key": "photo",
-                                            "value": "13",
+                                            "value": "1",
                                             "description": "Photo id to remove."
                                         }
                                     ]
@@ -874,7 +900,7 @@
                                         {
                                             "id": "photo",
                                             "key": "photo",
-                                            "value": "13",
+                                            "value": "1",
                                             "description": "Photo id to remove."
                                         }
                                     ]
@@ -912,8 +938,21 @@
                             "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/v1\/users",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users"
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number to return.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "perPage",
+                                    "value": "16",
+                                    "description": "Number of items to return in a page.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users?page=1&perPage=16"
                         },
                         "method": "GET",
                         "header": [
@@ -937,8 +976,21 @@
                                     "protocol": "http",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/v1\/users",
-                                    "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users"
+                                    "query": [
+                                        {
+                                            "key": "page",
+                                            "value": "1",
+                                            "description": "Page number to return.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "perPage",
+                                            "value": "16",
+                                            "description": "Number of items to return in a page.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/v1\/users?page=1&perPage=16"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -956,7 +1008,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": [\n        {\n            \"id\": 100,\n            \"email\": \"bernier.efren@example.net\",\n            \"username\": \"dock.powlowski\",\n            \"is_admin\": null,\n            \"created_at\": \"2021-06-01 15:12:55\",\n            \"updated_at\": \"2021-06-01 15:12:55\"\n        },\n        {\n            \"id\": 101,\n            \"email\": \"fbosco@example.org\",\n            \"username\": \"leonel.daniel\",\n            \"is_admin\": null,\n            \"created_at\": \"2021-06-01 15:12:55\",\n            \"updated_at\": \"2021-06-01 15:12:55\"\n        }\n    ]\n}"
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"email\": \"example@example.com\",\n            \"username\": \"GithubUser\",\n            \"is_admin\": false,\n            \"created_at\": \"2021-05-30 14:20:18\",\n            \"updated_at\": \"2021-05-30 14:20:49\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/users?page=1\",\n        \"last\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/users?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/users?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http:\\\/\\\/theam_crm.test\\\/api\\\/v1\\\/users\",\n        \"per_page\": \"3\",\n        \"to\": 3,\n        \"total\": 3\n    }\n}"
                         }
                     ]
                 },
@@ -1048,7 +1100,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": 102,\n        \"email\": \"yblanda@example.org\",\n        \"username\": \"zokon\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 15:12:55\",\n        \"updated_at\": \"2021-06-01 15:12:55\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": 398,\n        \"email\": \"filiberto41@example.org\",\n        \"username\": \"jupton\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:08:54\",\n        \"updated_at\": \"2021-06-01 17:08:54\"\n    }\n}"
                         }
                     ]
                 },
@@ -1065,13 +1117,13 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "corporis",
+                                    "value": "nobis",
                                     "description": ""
                                 },
                                 {
                                     "id": "int",
                                     "key": "int",
-                                    "value": "est",
+                                    "value": "sed",
                                     "description": "\u0413\u044b\u0443\u043a id to show."
                                 }
                             ]
@@ -1104,13 +1156,13 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "corporis",
+                                            "value": "nobis",
                                             "description": ""
                                         },
                                         {
                                             "id": "int",
                                             "key": "int",
-                                            "value": "est",
+                                            "value": "sed",
                                             "description": "\u0413\u044b\u0443\u043a id to show."
                                         }
                                     ]
@@ -1146,13 +1198,13 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "corporis",
+                                            "value": "nobis",
                                             "description": ""
                                         },
                                         {
                                             "id": "int",
                                             "key": "int",
-                                            "value": "est",
+                                            "value": "sed",
                                             "description": "\u0413\u044b\u0443\u043a id to show."
                                         }
                                     ]
@@ -1173,7 +1225,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": 103,\n        \"email\": \"mcdermott.elmer@example.net\",\n        \"username\": \"aimee.rice\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 15:12:55\",\n        \"updated_at\": \"2021-06-01 15:12:55\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": 399,\n        \"email\": \"marks.maci@example.net\",\n        \"username\": \"dherzog\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:08:54\",\n        \"updated_at\": \"2021-06-01 17:08:54\"\n    }\n}"
                         }
                     ]
                 },
@@ -1190,7 +1242,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "20",
+                                    "value": "12",
                                     "description": "User id to update."
                                 }
                             ]
@@ -1223,7 +1275,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "20",
+                                            "value": "12",
                                             "description": "User id to update."
                                         }
                                     ]
@@ -1259,7 +1311,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "20",
+                                            "value": "12",
                                             "description": "User id to update."
                                         }
                                     ]
@@ -1280,7 +1332,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": 104,\n        \"email\": \"lottie.auer@example.com\",\n        \"username\": \"rolfson.casey\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 15:12:55\",\n        \"updated_at\": \"2021-06-01 15:12:55\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": 400,\n        \"email\": \"zieme.destini@example.net\",\n        \"username\": \"lia68\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:08:54\",\n        \"updated_at\": \"2021-06-01 17:08:54\"\n    }\n}"
                         }
                     ]
                 },
@@ -1297,7 +1349,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "20",
+                                    "value": "2",
                                     "description": "User id to remove."
                                 }
                             ]
@@ -1330,7 +1382,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "20",
+                                            "value": "2",
                                             "description": "User id to remove."
                                         }
                                     ]
@@ -1366,7 +1418,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "20",
+                                            "value": "2",
                                             "description": "User id to remove."
                                         }
                                     ]
@@ -1404,7 +1456,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "17",
+                                    "value": "5",
                                     "description": "User id to toggle admin role."
                                 }
                             ]
@@ -1437,7 +1489,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "17",
+                                            "value": "5",
                                             "description": "User id to toggle admin role."
                                         }
                                     ]
@@ -1473,7 +1525,7 @@
                                         {
                                             "id": "user",
                                             "key": "user",
-                                            "value": "17",
+                                            "value": "5",
                                             "description": "User id to toggle admin role."
                                         }
                                     ]
@@ -1494,7 +1546,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": {\n        \"id\": 105,\n        \"email\": \"nasir.dooley@example.net\",\n        \"username\": \"lavina79\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 15:12:55\",\n        \"updated_at\": \"2021-06-01 15:12:55\"\n    }\n}"
+                            "body": "{\n    \"data\": {\n        \"id\": 401,\n        \"email\": \"bogan.ray@example.net\",\n        \"username\": \"haleigh.christiansen\",\n        \"is_admin\": null,\n        \"created_at\": \"2021-06-01 17:08:54\",\n        \"updated_at\": \"2021-06-01 17:08:54\"\n    }\n}"
                         }
                     ]
                 }

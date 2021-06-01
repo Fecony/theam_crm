@@ -60,7 +60,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">[YOUR APP URL]</code></pre><h1>Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {TOKEN}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {TOKEN}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by authorizing via <b>Github OAuth2 Provider</b>.</p><h1>Customer endpoint</h1>
 <p>Endpoint used to manage CRM customers.</p>
@@ -70,13 +70,20 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "[YOUR APP URL]/api/v1/customers" \
+    -G "[YOUR APP URL]/api/v1/customers?page=1&amp;perPage=16" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "[YOUR APP URL]/api/v1/customers"
 );
+
+let params = {
+    "page": "1",
+    "perPage": "16",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer {TOKEN}",
@@ -97,6 +104,10 @@ $response = $client-&gt;get(
             'Authorization' =&gt; 'Bearer {TOKEN}',
             'Accept' =&gt; 'application/json',
         ],
+        'query' =&gt; [
+            'page'=&gt; '1',
+            'perPage'=&gt; '16',
+        ],
     ]
 );
 $body = $response-&gt;getBody();
@@ -107,9 +118,9 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-json">{
     "data": [
         {
-            "id": null,
-            "name": "Sabrina",
-            "surname": "Durgan",
+            "id": 1,
+            "name": "name 1",
+            "surname": "surname",
             "photoUrl": null,
             "created_by": {
                 "id": 1,
@@ -118,35 +129,57 @@ print_r(json_decode((string) $body));</code></pre>
                 "is_admin": true
             },
             "updated_by": {
-                "id": 2,
-                "email": "example@mail.ru",
-                "username": "Test user",
-                "is_admin": false
-            },
-            "created_at": "",
-            "updated_at": ""
-        },
-        {
-            "id": null,
-            "name": "Queenie",
-            "surname": "Brekke",
-            "photoUrl": null,
-            "created_by": {
                 "id": 1,
                 "email": "tagils@mail.ru",
                 "username": "Fecony",
                 "is_admin": true
             },
-            "updated_by": {
-                "id": 2,
-                "email": "example@mail.ru",
-                "username": "Test user",
-                "is_admin": false
-            },
-            "created_at": "",
-            "updated_at": ""
+            "created_at": "2021-05-30 11:11:06",
+            "updated_at": "2021-05-30 11:25:12"
         }
-    ]
+    ],
+    "links": {
+        "first": "http:\/\/theam_crm.test\/api\/v1\/customers?page=1",
+        "last": "http:\/\/theam_crm.test\/api\/v1\/customers?page=3",
+        "prev": null,
+        "next": "http:\/\/theam_crm.test\/api\/v1\/customers?page=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 3,
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/customers?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/customers?page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/customers?page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/customers?page=2",
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "path": "http:\/\/theam_crm.test\/api\/v1\/customers",
+        "per_page": "3",
+        "to": 3,
+        "total": 7
+    }
 }</code></pre>
 <div id="execution-results-GETapi-v1-customers" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-v1-customers"></span>:</blockquote>
@@ -166,6 +199,19 @@ print_r(json_decode((string) $body));</code></pre>
 </p>
 <p>
 <label id="auth-GETapi-v1-customers" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-v1-customers" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page</code></b>&nbsp;&nbsp;<small>int</small>     <i>optional</i> &nbsp;
+<input type="text" name="page" data-endpoint="GETapi-v1-customers" data-component="query"  hidden>
+<br>
+Page number to return.
+</p>
+<p>
+<b><code>perPage</code></b>&nbsp;&nbsp;<small>int</small>     <i>optional</i> &nbsp;
+<input type="text" name="perPage" data-endpoint="GETapi-v1-customers" data-component="query"  hidden>
+<br>
+Number of items to return in a page.
 </p>
 </form>
 <h2>api/v1/customers</h2>
@@ -239,20 +285,20 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-json">{
     "data": {
         "id": null,
-        "name": "Cydney",
-        "surname": "Kozey",
+        "name": "Carlos",
+        "surname": "Lemke",
         "photoUrl": null,
         "created_by": {
+            "id": 3,
+            "email": "example@example.com",
+            "username": "GithubUser",
+            "is_admin": false
+        },
+        "updated_by": {
             "id": 1,
             "email": "tagils@mail.ru",
             "username": "Fecony",
             "is_admin": true
-        },
-        "updated_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
-            "is_admin": false
         },
         "created_at": "",
         "updated_at": ""
@@ -304,12 +350,12 @@ Photo id.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "[YOUR APP URL]/api/v1/customers/16" \
+    -G "[YOUR APP URL]/api/v1/customers/17" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "[YOUR APP URL]/api/v1/customers/16"
+    "[YOUR APP URL]/api/v1/customers/17"
 );
 
 let headers = {
@@ -325,7 +371,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    '[YOUR APP URL]/api/v1/customers/16',
+    '[YOUR APP URL]/api/v1/customers/17',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {TOKEN}',
@@ -347,20 +393,20 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-json">{
     "data": {
         "id": null,
-        "name": "Vanessa",
-        "surname": "O'Keefe",
+        "name": "Marianne",
+        "surname": "Senger",
         "photoUrl": null,
         "created_by": {
-            "id": 3,
-            "email": "example@example.com",
-            "username": "GithubUser",
-            "is_admin": false
+            "id": 1,
+            "email": "tagils@mail.ru",
+            "username": "Fecony",
+            "is_admin": true
         },
         "updated_by": {
-            "id": 2,
-            "email": "example@mail.ru",
-            "username": "Test user",
-            "is_admin": false
+            "id": 1,
+            "email": "tagils@mail.ru",
+            "username": "Fecony",
+            "is_admin": true
         },
         "created_at": "",
         "updated_at": ""
@@ -399,12 +445,12 @@ Customer id to show.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "[YOUR APP URL]/api/v1/customers/6" \
+    "[YOUR APP URL]/api/v1/customers/9" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "[YOUR APP URL]/api/v1/customers/6"
+    "[YOUR APP URL]/api/v1/customers/9"
 );
 
 let headers = {
@@ -420,7 +466,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    '[YOUR APP URL]/api/v1/customers/6',
+    '[YOUR APP URL]/api/v1/customers/9',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {TOKEN}',
@@ -442,20 +488,20 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-json">{
     "data": {
         "id": null,
-        "name": "Raheem",
-        "surname": "Mohr",
+        "name": "Else",
+        "surname": "Gislason",
         "photoUrl": null,
         "created_by": {
-            "id": 3,
-            "email": "example@example.com",
-            "username": "GithubUser",
+            "id": 2,
+            "email": "example@mail.ru",
+            "username": "Test user",
             "is_admin": false
         },
         "updated_by": {
-            "id": 1,
-            "email": "tagils@mail.ru",
-            "username": "Fecony",
-            "is_admin": true
+            "id": 2,
+            "email": "example@mail.ru",
+            "username": "Test user",
+            "is_admin": false
         },
         "created_at": "",
         "updated_at": ""
@@ -498,12 +544,12 @@ Customer id to update.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "[YOUR APP URL]/api/v1/customers/2" \
+    "[YOUR APP URL]/api/v1/customers/18" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "[YOUR APP URL]/api/v1/customers/2"
+    "[YOUR APP URL]/api/v1/customers/18"
 );
 
 let headers = {
@@ -519,7 +565,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    '[YOUR APP URL]/api/v1/customers/2',
+    '[YOUR APP URL]/api/v1/customers/18',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {TOKEN}',
@@ -757,7 +803,7 @@ print_r(json_decode((string) $body));</code></pre>
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpWti3Os" </code></pre>
+    -F "photo=@/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpzJb0HE" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "[YOUR APP URL]/api/v1/photos"
 );
@@ -788,7 +834,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'photo',
-                'contents' =&gt; fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpWti3Os', 'r')
+                'contents' =&gt; fopen('/private/var/folders/4s/181dychs12vcg4nrjvpfx_gc0000gn/T/phpzJb0HE', 'r')
             ],
         ],
     ]
@@ -852,12 +898,12 @@ The image.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "[YOUR APP URL]/api/v1/photos/13" \
+    "[YOUR APP URL]/api/v1/photos/1" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "[YOUR APP URL]/api/v1/photos/13"
+    "[YOUR APP URL]/api/v1/photos/1"
 );
 
 let headers = {
@@ -873,7 +919,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    '[YOUR APP URL]/api/v1/photos/13',
+    '[YOUR APP URL]/api/v1/photos/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {TOKEN}',
@@ -928,13 +974,20 @@ Photo id to remove.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "[YOUR APP URL]/api/v1/users" \
+    -G "[YOUR APP URL]/api/v1/users?page=1&amp;perPage=16" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "[YOUR APP URL]/api/v1/users"
 );
+
+let params = {
+    "page": "1",
+    "perPage": "16",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer {TOKEN}",
@@ -955,6 +1008,10 @@ $response = $client-&gt;get(
             'Authorization' =&gt; 'Bearer {TOKEN}',
             'Accept' =&gt; 'application/json',
         ],
+        'query' =&gt; [
+            'page'=&gt; '1',
+            'perPage'=&gt; '16',
+        ],
     ]
 );
 $body = $response-&gt;getBody();
@@ -965,22 +1022,46 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-json">{
     "data": [
         {
-            "id": 100,
-            "email": "bernier.efren@example.net",
-            "username": "dock.powlowski",
-            "is_admin": null,
-            "created_at": "2021-06-01 15:12:55",
-            "updated_at": "2021-06-01 15:12:55"
-        },
-        {
-            "id": 101,
-            "email": "fbosco@example.org",
-            "username": "leonel.daniel",
-            "is_admin": null,
-            "created_at": "2021-06-01 15:12:55",
-            "updated_at": "2021-06-01 15:12:55"
+            "id": 1,
+            "email": "example@example.com",
+            "username": "GithubUser",
+            "is_admin": false,
+            "created_at": "2021-05-30 14:20:18",
+            "updated_at": "2021-05-30 14:20:49"
         }
-    ]
+    ],
+    "links": {
+        "first": "http:\/\/theam_crm.test\/api\/v1\/users?page=1",
+        "last": "http:\/\/theam_crm.test\/api\/v1\/users?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/theam_crm.test\/api\/v1\/users?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "path": "http:\/\/theam_crm.test\/api\/v1\/users",
+        "per_page": "3",
+        "to": 3,
+        "total": 3
+    }
 }</code></pre>
 <div id="execution-results-GETapi-v1-users" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-v1-users"></span>:</blockquote>
@@ -1000,6 +1081,19 @@ print_r(json_decode((string) $body));</code></pre>
 </p>
 <p>
 <label id="auth-GETapi-v1-users" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-v1-users" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page</code></b>&nbsp;&nbsp;<small>int</small>     <i>optional</i> &nbsp;
+<input type="text" name="page" data-endpoint="GETapi-v1-users" data-component="query"  hidden>
+<br>
+Page number to return.
+</p>
+<p>
+<b><code>perPage</code></b>&nbsp;&nbsp;<small>int</small>     <i>optional</i> &nbsp;
+<input type="text" name="perPage" data-endpoint="GETapi-v1-users" data-component="query"  hidden>
+<br>
+Number of items to return in a page.
 </p>
 </form>
 <h2>api/v1/users</h2>
@@ -1070,12 +1164,12 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "id": 102,
-        "email": "yblanda@example.org",
-        "username": "zokon",
+        "id": 398,
+        "email": "filiberto41@example.org",
+        "username": "jupton",
         "is_admin": null,
-        "created_at": "2021-06-01 15:12:55",
-        "updated_at": "2021-06-01 15:12:55"
+        "created_at": "2021-06-01 17:08:54",
+        "updated_at": "2021-06-01 17:08:54"
     }
 }</code></pre>
 <div id="execution-results-POSTapi-v1-users" hidden>
@@ -1118,12 +1212,12 @@ User username.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "[YOUR APP URL]/api/v1/users/corporis" \
+    -G "[YOUR APP URL]/api/v1/users/nobis" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "[YOUR APP URL]/api/v1/users/corporis"
+    "[YOUR APP URL]/api/v1/users/nobis"
 );
 
 let headers = {
@@ -1139,7 +1233,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    '[YOUR APP URL]/api/v1/users/corporis',
+    '[YOUR APP URL]/api/v1/users/nobis',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {TOKEN}',
@@ -1160,12 +1254,12 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "id": 103,
-        "email": "mcdermott.elmer@example.net",
-        "username": "aimee.rice",
+        "id": 399,
+        "email": "marks.maci@example.net",
+        "username": "dherzog",
         "is_admin": null,
-        "created_at": "2021-06-01 15:12:55",
-        "updated_at": "2021-06-01 15:12:55"
+        "created_at": "2021-06-01 17:08:54",
+        "updated_at": "2021-06-01 17:08:54"
     }
 }</code></pre>
 <div id="execution-results-GETapi-v1-users--user-" hidden>
@@ -1207,12 +1301,12 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "[YOUR APP URL]/api/v1/users/20" \
+    "[YOUR APP URL]/api/v1/users/12" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "[YOUR APP URL]/api/v1/users/20"
+    "[YOUR APP URL]/api/v1/users/12"
 );
 
 let headers = {
@@ -1228,7 +1322,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    '[YOUR APP URL]/api/v1/users/20',
+    '[YOUR APP URL]/api/v1/users/12',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {TOKEN}',
@@ -1249,12 +1343,12 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "id": 104,
-        "email": "lottie.auer@example.com",
-        "username": "rolfson.casey",
+        "id": 400,
+        "email": "zieme.destini@example.net",
+        "username": "lia68",
         "is_admin": null,
-        "created_at": "2021-06-01 15:12:55",
-        "updated_at": "2021-06-01 15:12:55"
+        "created_at": "2021-06-01 17:08:54",
+        "updated_at": "2021-06-01 17:08:54"
     }
 }</code></pre>
 <div id="execution-results-PUTapi-v1-users--user-" hidden>
@@ -1294,12 +1388,12 @@ User id to update.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "[YOUR APP URL]/api/v1/users/20" \
+    "[YOUR APP URL]/api/v1/users/2" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "[YOUR APP URL]/api/v1/users/20"
+    "[YOUR APP URL]/api/v1/users/2"
 );
 
 let headers = {
@@ -1315,7 +1409,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    '[YOUR APP URL]/api/v1/users/20',
+    '[YOUR APP URL]/api/v1/users/2',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {TOKEN}',
@@ -1368,12 +1462,12 @@ User id to remove.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PATCH \
-    "[YOUR APP URL]/api/v1/users/17/toggle_admin" \
+    "[YOUR APP URL]/api/v1/users/5/toggle_admin" \
     -H "Authorization: Bearer {TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "[YOUR APP URL]/api/v1/users/17/toggle_admin"
+    "[YOUR APP URL]/api/v1/users/5/toggle_admin"
 );
 
 let headers = {
@@ -1389,7 +1483,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;patch(
-    '[YOUR APP URL]/api/v1/users/17/toggle_admin',
+    '[YOUR APP URL]/api/v1/users/5/toggle_admin',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {TOKEN}',
@@ -1410,12 +1504,12 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "id": 105,
-        "email": "nasir.dooley@example.net",
-        "username": "lavina79",
+        "id": 401,
+        "email": "bogan.ray@example.net",
+        "username": "haleigh.christiansen",
         "is_admin": null,
-        "created_at": "2021-06-01 15:12:55",
-        "updated_at": "2021-06-01 15:12:55"
+        "created_at": "2021-06-01 17:08:54",
+        "updated_at": "2021-06-01 17:08:54"
     }
 }</code></pre>
 <div id="execution-results-PATCHapi-v1-users--user--toggle_admin" hidden>

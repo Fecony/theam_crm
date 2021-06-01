@@ -1,0 +1,66 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "name 1",
+            "surname": "surname",
+            "photoUrl": null,
+            "created_by": {
+                "id": 1,
+                "email": "tagils@mail.ru",
+                "username": "Fecony",
+                "is_admin": true
+            },
+            "updated_by": {
+                "id": 1,
+                "email": "tagils@mail.ru",
+                "username": "Fecony",
+                "is_admin": true
+            },
+            "created_at": "2021-05-30 11:11:06",
+            "updated_at": "2021-05-30 11:25:12"
+        }
+    ],
+    "links": {
+        "first": "http://theam_crm.test/api/v1/customers?page=1",
+        "last": "http://theam_crm.test/api/v1/customers?page=3",
+        "prev": null,
+        "next": "http://theam_crm.test/api/v1/customers?page=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 3,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://theam_crm.test/api/v1/customers?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http://theam_crm.test/api/v1/customers?page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http://theam_crm.test/api/v1/customers?page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http://theam_crm.test/api/v1/customers?page=2",
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "path": "http://theam_crm.test/api/v1/customers",
+        "per_page": "3",
+        "to": 3,
+        "total": 7
+    }
+}

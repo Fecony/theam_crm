@@ -15,18 +15,17 @@ use Symfony\Component\HttpFoundation\Response;
  * @group User endpoint
  *
  * Endpoint used to manage CRM users.
- * 
+ *
  * <aside class="warning">Only admin users can access this endpoint</aside>
  */
 class UserController extends Controller
 {
     /**
-     * @apiResourceCollection App\Http\Resources\UserResource
-     * @apiResourceModel App\Models\User
+     * @responseFile storage/responses/users.get.json
      */
     public function index(): AnonymousResourceCollection
     {
-        return UserResource::collection(User::all());
+        return UserResource::collection(User::apiPaginate());
     }
 
     /**
