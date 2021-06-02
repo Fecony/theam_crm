@@ -3,20 +3,33 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
+        config()->set('seeding', true);
+
+        $this->preparePhotoDirectory();
+
         $this->call([
-//            UserSeeder::class,
-//            PhotoSeeder::class
+            PhotoSeeder::class,
+            UserSeeder::class,
             CustomerSeeder::class
         ]);
+
+        config()->set('seeding', false);
+    }
+
+    protected function preparePhotoDirectory(): void
+    {
+        $filepath = public_path('storage/photos/testing');
+
+        if (!File::exists($filepath)) {
+            File::makeDirectory($filepath);
+        } else {
+            File::cleanDirectory($filepath);
+        }
     }
 }

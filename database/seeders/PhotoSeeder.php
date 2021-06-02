@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Customer;
+use App\Models\Photo;
 use Illuminate\Database\Seeder;
 
-class CustomerSeeder extends Seeder
+class PhotoSeeder extends Seeder
 {
     public function run(): void
     {
-        Customer::factory(25)->create();
+        Photo::factory(10)->create();
     }
 }
