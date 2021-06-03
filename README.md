@@ -133,6 +133,36 @@ You will get url that user has to visit in order to give us access to his Github
 
 #### To authenticate requests, include an Authorization header with the value "Bearer {BEARER TOKEN}".
 
+## Running Tests
+
+Tests are running in sqlite database. You can download it [here](https://www.sqlite.org/download.html) 
+
+To run tests you have to create `.env.testing` file:
+
+```bash
+  cp .env .env.testing
+```
+
+set following environment variables:
+
+```bash
+  APP_ENV=testing
+
+  DB_CONNECTION=sqlite
+  DB_HOST=null
+  DB_PORT=null
+  DB_DATABASE=:memory:
+  DB_USERNAME=null
+  DB_PASSWORD=null
+  
+  GITHUB_CLIENT_ID=test
+  GITHUB_CLIENT_SECRET=test
+```
+
+Then you can run `composer test` command to run tests using PHPUnit.
+
+Or you can run `php artisan test` to see fancy output ✨
+
 ## Documentation
 
 You can view deployed version of docs at [Github Pages](https://fecony.github.io/theam_crm/)

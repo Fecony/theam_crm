@@ -1,8 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "fecony/theam_crm_api",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "THEAM CRM API to manage customers",
     "license": "MIT",
     "require": {
         "php": "^7.4|^8.0",
@@ -21,7 +20,8 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "phpunit/phpunit": "^9.3.3",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {
@@ -45,6 +45,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "test": [
+            "vendor/bin/phpunit"
         ]
     },
     "extra": {
