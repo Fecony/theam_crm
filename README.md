@@ -62,11 +62,13 @@ Copy .env.example file to .env on the root folder.
   cp .env.example .env
 ```
 
+## Run Locally
+
 Run `php artisan key:generate` to generate app key.
 
 Run `php artisan storage:link` to create the symbolic link.
 
-## Run Locally
+> If you are running Docker, you can use the same commands but swap `php` to `sail`.
 
 #### Docker
 
@@ -162,6 +164,13 @@ set following environment variables:
 Then you can run `composer test` command to run tests using PHPUnit.
 
 Or you can run `php artisan test` to see fancy output ✨
+
+If everything is fine you will see happy tests output 🧪
+![Happy Tests Output](./storage/happy_tests.png)
+
+#### Docker
+
+After starting Docker container by running `./vendor/bin/sail up -d` you can run `sail test` to run tests.
 
 ## Documentation
 
