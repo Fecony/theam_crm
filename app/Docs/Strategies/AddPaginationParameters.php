@@ -11,16 +11,16 @@ use ReflectionFunctionAbstract;
 class AddPaginationParameters extends Strategy
 {
     /**
-     * The stage the strategy belongs to.
-     * One of "metadata", "urlParameters", "queryParameters", "bodyParameters", "headers", "responses", "responseFields".
-     */
-    public $stage = 'queryParameters';
-
-    /**
      * Trait containing some helper methods for dealing with "parameters".
      * Useful if your strategy extracts information about parameters.
      */
     use ParamHelpers;
+
+    /**
+     * The stage the strategy belongs to.
+     * One of "metadata", "urlParameters", "queryParameters", "bodyParameters", "headers", "responses", "responseFields".
+     */
+    public $stage = 'queryParameters';
 
     /**
      * @link https://scribe.readthedocs.io/en/latest/plugins.html

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePhotoRequest;
 use App\Models\Photo;
+use App\Services\PhotoService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -39,22 +39,12 @@ class PhotoController extends Controller
      * }
      *
      * @param  StorePhotoRequest  $request
+     * @param  PhotoService  $photoService
      * @return JsonResponse
      */
-    public function store(StorePhotoRequest $request): JsonResponse
+    public function store(StorePhotoRequest $request, PhotoService $photoService): JsonResponse
     {
-        $file = $request->file('photo');
-        $filenameWithExt = $file->getClientOriginalName();
-        $fileName = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $fileExtension = $file->getClientOriginalExtension();
-        $fileNameToStore = $fileName . '_' . time() . '.' . $fileExtension;
-
-        $path = $file->storeAs('public/photos', $fileNameToStore);
-
-        $photo = Photo::create([
-            'name' => $fileNameToStore,
-            'path' => $path,
-        ]);
+        $photo = $photoService->uploadPhoto($request->file('photo'));
 
         return response()->json([
             'photo' => $photo
@@ -73,20 +63,19 @@ class PhotoController extends Controller
      * }
      *
      * @param  Photo  $photo
+     * @param  PhotoService  $photoService
      * @return JsonResponse
      */
-    public function destroy(Photo $photo): JsonResponse
+    public function destroy(Photo $photo, PhotoService $photoService): JsonResponse
     {
-        if (!Storage::exists($photo->path)) {
-            return response()->json([
-                'error' => 'Photo does not exist.'
-            ], Response::HTTP_NOT_FOUND);
+        $removedPhoto = $photoService->destroy($photo);
+
+        if ($removedPhoto) {
+            return response()->json(null, Response::HTTP_NO_CONTENT);
         }
 
-        Storage::delete($photo->path);
-
-        $photo->delete();
-
-        return response()->json(null, Response::HTTP_NO_CONTENT);
+        return response()->json([
+            'error' => 'Photo does not exist.'
+        ], Response::HTTP_NOT_FOUND);
     }
 }

@@ -62,11 +62,13 @@ Copy .env.example file to .env on the root folder.
   cp .env.example .env
 ```
 
+## Run Locally
+
 Run `php artisan key:generate` to generate app key.
 
 Run `php artisan storage:link` to create the symbolic link.
 
-## Run Locally
+> If you are running Docker, you can use the same commands but swap `php` to `sail`.
 
 #### Docker
 
@@ -132,6 +134,43 @@ You will get url that user has to visit in order to give us access to his Github
 ```
 
 #### To authenticate requests, include an Authorization header with the value "Bearer {BEARER TOKEN}".
+
+## Running Tests
+
+Tests are running in sqlite database. You can download it [here](https://www.sqlite.org/download.html) 
+
+To run tests you have to create `.env.testing` file:
+
+```bash
+  cp .env .env.testing
+```
+
+set following environment variables:
+
+```bash
+  APP_ENV=testing
+
+  DB_CONNECTION=sqlite
+  DB_HOST=null
+  DB_PORT=null
+  DB_DATABASE=:memory:
+  DB_USERNAME=null
+  DB_PASSWORD=null
+  
+  GITHUB_CLIENT_ID=test
+  GITHUB_CLIENT_SECRET=test
+```
+
+Then you can run `composer test` command to run tests using PHPUnit.
+
+Or you can run `php artisan test` to see fancy output ✨
+
+If everything is fine you will see happy tests output 🧪
+![Happy Tests Output](./storage/happy_tests.png)
+
+#### Docker
+
+After starting Docker container by running `./vendor/bin/sail up -d` you can run `sail test` to run tests.
 
 ## Documentation
 
