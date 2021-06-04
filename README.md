@@ -52,6 +52,22 @@ Go to the project directory
 
 Install dependencies
 
+#### Docker
+
+> This command will run Docker container to install application dependencies
+> You can refer to Laravel Sail [docs](https://laravel.com/docs/8.x/sail#installing-composer-dependencies-for-existing-projects) for other useful commands! 
+
+```bash
+  docker run --rm \
+              -u "$(id -u):$(id -g)" \
+              -v $(pwd):/opt \
+              -w /opt \
+              laravelsail/php80-composer:latest \
+              composer install --ignore-platform-reqs
+```
+
+#### Valet / Valet + / Laravel server
+
 ```bash
   composer install
 ```
