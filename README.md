@@ -52,7 +52,7 @@ Go to the project directory
 
 Install dependencies
 
-#### Docker
+#### Docker 🐳
 
 > This command will run Docker container to install application dependencies
 > You can refer to Laravel Sail [docs](https://laravel.com/docs/8.x/sail#installing-composer-dependencies-for-existing-projects) for other useful commands! 
@@ -86,7 +86,7 @@ Run `php artisan storage:link` to create the symbolic link.
 
 > If you are running Docker, you can use the same commands but swap `php` to `sail`.
 
-#### Docker
+#### Docker 🐳
 
 By default application is configured to run in Docker container. You don't have to change any environment configuration setting.
 To run app in Docker container make sure that Docker is running.
@@ -100,7 +100,7 @@ After you application is running in Docker container run `sail artisan migrate` 
 
 ### Running application locally without Docker
 
-To run application locally you have to change your `.env` file mysql settings. Change following settings to match you local mysql settings:
+To run application locally you have to change your `.env` file mysql settings. Change following settings to match youк local mysql settings:
 
 ```bash
 DB_HOST=127.0.0.1
@@ -134,7 +134,7 @@ Then you can access you app running on <http://127.0.0.1:8000>
 
 ## Authorization flow ✨
 
-In order to access protected API endpoints you have to authentication user by using "Github Authentication" - `api/v1/auth/github` endpoint.
+In order to access protected API endpoints you have to authenticate user by using "Github Authentication" - `api/v1/auth/github` endpoint.
 You will get url that user has to visit in order to give us access to his Github Account. After successful authentication user will be redirected and you will receive user basic information with token that you have to use for authorization.
 
 > Example response: 
@@ -184,7 +184,7 @@ Or you can run `php artisan test` to see fancy output ✨
 If everything is fine you will see happy tests output 🧪
 ![Happy Tests Output](./storage/happy_tests.png)
 
-#### Docker
+#### Docker 🐳
 
 After starting Docker container by running `./vendor/bin/sail up -d` you can run `sail test` to run tests.
 
