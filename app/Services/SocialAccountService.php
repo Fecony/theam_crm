@@ -19,8 +19,8 @@ class SocialAccountService
         }
 
         $user = User::firstOrCreate(
-            ['email' => $providerUser->getEmail()],
-            ['username' => $providerUser->getNickname()]
+            ['username' => $providerUser->getNickname()],
+            ['email' => $providerUser->getEmail()]
         );
 
         $user->socialAccounts()->create([
