@@ -213,6 +213,27 @@ To regenerate docs run:
 ```
 Also you can find Postman collection by visiting /docs.postman.
 
+## Troubleshooting - Common Problems
+This page lists solutions to problems you might encounter. Here is a list of common problems.
+
+### Access denied for user 'sail@172.20.0.3'... | Docker 🐳
+- Try to run `./vendor/bin/sail down --rmi all -v`. It will remove all images used by any service and remove named volumes.
+- (optional) You might run `./vendor/bin/sail build --no-cache` to build image before running next command
+- Then run `./vendor/bin/sail up -d` again to build container.
+
+### Issues with photo saving / photo seeder | Storage folder permission issue
+Usually it happens when you have wrong permission set on storage folder.
+
+- But there are no exact steps to fix this problem yet :(
+<!-- Need to debug more to find steps to fix this -->
+
+### Cannot start service mysql: Ports are not available: listen tcp 0.0.0.0:3306: bind: address already in use
+Most likely you have running mysql service locally. There are 2 solutions to this isuse:
+
+- You have to stop your local mysql service to make port 3306 available for docker
+- Use `FORWARD_DB_PORT` in your .env to use different port for docker port binding
+  - `FORWARD_DB_PORT=3307`
+
 ## Authors
 
 - [@fecony](https://www.github.com/fecony)
