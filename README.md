@@ -149,6 +149,20 @@ You will get url that user has to visit in order to give us access to his Github
 "token": "BEARER TOKEN"
 ```
 
+### Admin user
+
+In order to access admin protected API endpoints you have to toggle your test user admin status.
+You can to so by updating database value for user. Or you can use `admin:toggle` artisan command that will be available in `local` mode
+
+You can run artisan command to toggle admin state for provided user:
+```bash
+  // on your local machine.
+  php artisan admin:toggle {username}
+
+  // Docker 🐳
+  sail artisan admin:toggle {username}
+```
+
 #### To authenticate requests, include an Authorization header with the value "Bearer {BEARER TOKEN}".
 
 ## Running Tests
