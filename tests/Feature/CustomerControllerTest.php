@@ -199,7 +199,66 @@ class CustomerControllerTest extends TestCase
                     ],
                 ]
             ]);
+    }
 
+    public function testCustomerIsStillPresentIfUserWasDeleted(): void
+    {
+        $user = User::factory()->create();
+        Sanctum::actingAs($user);
+
+        $customer = Customer::factory()->create([
+            'name' => 'Test',
+            'surname' => 'Customer'
+        ]);
+
+        $this->json('GET', "api/v1/customers/{$customer->id}")
+            ->assertStatus(Response::HTTP_OK)
+            ->assertExactJson([
+                'data' => [
+                    'id' => $customer->id,
+                    'name' => $customer->name,
+                    'surname' => $customer->surname,
+                    'photoUrl' => null,
+                    'created_by' => [
+                        'id' => auth()->id(),
+                        'email' => auth()->user()->email,
+                        'username' => auth()->user()->username,
+                        'is_admin' => auth()->user()->isAdmin()
+                    ],
+                    'updated_by' => [
+                        'id' => auth()->id(),
+                        'email' => auth()->user()->email,
+                        'username' => auth()->user()->username,
+                        'is_admin' => auth()->user()->isAdmin()
+                    ],
+                    'created_at' => (string) $customer->created_at,
+                    'updated_at' => (string) $customer->updated_at,
+                ]
+            ]);
+
+        // Now delete user that created customer
+        Sanctum::actingAs(User::factory(['is_admin' => true])->create());
+
+        $this->json('DELETE', "api/v1/users/$user->id")->assertNoContent();
+        $this->assertDatabaseMissing('users', [
+            'username' => $user->username,
+            'email' => $user->email
+        ]);
+
+        $this->json('GET', "api/v1/customers/{$customer->id}")
+            ->assertStatus(Response::HTTP_OK)
+            ->assertExactJson([
+                'data' => [
+                    'id' => $customer->id,
+                    'name' => $customer->name,
+                    'surname' => $customer->surname,
+                    'photoUrl' => null,
+                    'created_by' => null,
+                    'updated_by' => null,
+                    'created_at' => (string) $customer->created_at,
+                    'updated_at' => (string) $customer->updated_at,
+                ]
+            ]);
     }
 
     public function testCustomerIsDeletedSuccessfully(): void
