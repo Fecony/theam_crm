@@ -115,7 +115,7 @@ class UserControllerTest extends TestCase
         Sanctum::actingAs(User::factory(['is_admin' => true])->create());
 
         $userData = [
-            'username' => 'GitHubUser',
+            'email' => 'GitHubUser',
         ];
 
         $this->json('POST', 'api/v1/users', $userData)
@@ -124,7 +124,10 @@ class UserControllerTest extends TestCase
                 'message' => 'The given data was invalid.',
                 'errors' => [
                     'email' => [
-                        'The email field is required.'
+                        'The email must be a valid email address.'
+                    ],
+                    'username' => [
+                        'The username field is required.'
                     ]
                 ]
             ]);

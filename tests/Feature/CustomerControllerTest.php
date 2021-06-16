@@ -199,7 +199,6 @@ class CustomerControllerTest extends TestCase
                     ],
                 ]
             ]);
-
     }
 
     public function testCustomerIsDeletedSuccessfully(): void
